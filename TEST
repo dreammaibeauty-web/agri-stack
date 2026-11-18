@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Page</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            color: #333;
+            text-align: center;
+        }
+        h1 {
+            margin-bottom: 0.5rem;
+        }
+        a {
+            display: inline-block;
+            margin-top: 1rem;
+            color: #0066cc;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🎉 It Works!</h1>
+    <p>This test page was created directly on GitHub.com without using Command Prompt or VS Code!</p>
+    <p><a href="/">&larr; Back to Homepage</a></p>
+
+</body>
+</html>
