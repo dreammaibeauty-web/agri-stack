@@ -1,100 +1,239 @@
 ---
 // src/pages/index.astro
+const pageTitle = "Relieve Back Pain & Master Posture Correction | 5-Min Guide";
+const pageDescription =
+  "Evidence-based 5-minute daily movement routines, thoracic extension, core activation, and ergonomic workstation principles for back pain relief and posture correction.";
 ---
 
-<header>
-  <div>
-    <a href="#">
-      <span>H</span>
-      <span>Health<span>Guide</span></span>
-    </a>
-    <a href="#exercises">Start 5-Min Guide</a>
-  </div>
-</header>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-slate-50 text-slate-900 antialiased selection:bg-emerald-600 selection:text-white">
+    <!-- Header -->
+    <header class="sticky top-0 z-30 border-b border-slate-200 bg-white/95 backdrop-blur">
+      <div class="mx-auto flex max-w-5xl items-center justify-between px-4 py-4">
+        <a href="#" class="flex items-center gap-2.5 font-semibold tracking-tight text-slate-900">
+          <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-emerald-700 text-sm font-bold text-white">
+            H
+          </span>
+          <span>Health<span class="text-emerald-700">Guide</span></span>
+        </a>
 
-<section>
-  <div>
-    <span>EVIDENCE-BASED HEALTH PROTOCOL 2026</span>
-    <h1>Relieve Back Pain &amp; Master <span>Posture Correction</span></h1>
-    <p>Targeted daily movement routines and ergonomic principles designed to restore spinal alignment and strengthen core stability.</p>
-    <a href="#exercises">Explore Daily Exercises &rarr;</a>
-  </div>
-</section>
+        <nav class="hidden items-center gap-6 text-sm font-medium text-slate-600 md:flex">
+          <a href="#overview" class="hover:text-slate-900">Overview</a>
+          <a href="#exercises" class="hover:text-slate-900">Exercises</a>
+          <a href="#comparison" class="hover:text-slate-900">Comparison</a>
+          <a href="#faq" class="hover:text-slate-900">FAQ</a>
+        </nav>
 
-<main>
-  <section>
-    <span>TL;DR Quick Summary</span>
-    <h2>What is the most effective way to correct posture and relieve lower back pain?</h2>
-    <p>Effective posture correction combines targeted thoracic spine extension stretches, core stabilization exercises (such as dead bugs and planks), and ergonomic workstation adjustments. Performing 5-minute daily movement snacks reduces lumbar disc pressure, relieves muscular fatigue, and establishes sustainable spinal support within 4 to 6 weeks.</p>
-  </section>
-
-  <section id="exercises">
-    <h2>Core Pillar Exercises</h2>
-    <p>Daily targeted movements to relieve muscle tightness and build structural stability.</p>
-    <div>
-      <div>
-        <div>01</div>
-        <h3>Thoracic Extension</h3>
-        <p>Reverses forward-slumping computer posture by gently opening the chest and mid-back spine.</p>
-        <span>2 Mins Daily</span>
+        <a
+          href="#exercises"
+          class="rounded-lg bg-emerald-700 px-4 py-2 text-sm font-medium text-white hover:bg-emerald-800"
+        >
+          Start 5-Min Guide
+        </a>
       </div>
-      <div>
-        <div>02</div>
-        <h3>Glute &amp; Core Activation</h3>
-        <p>Strengthens deep abdominal muscles and gluteal bridges to stabilize the pelvic girdle.</p>
-        <span>3 Mins Daily</span>
+    </header>
+
+    <!-- Hero -->
+    <section class="border-b border-slate-200 bg-white py-16 md:py-20">
+      <div class="mx-auto max-w-4xl px-4 text-center">
+        <div class="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-3.5 py-1 text-xs font-semibold uppercase tracking-wide text-emerald-800">
+          <span class="h-2 w-2 rounded-full bg-emerald-600"></span>
+          Evidence-Based Health Protocol 2026
+        </div>
+
+        <h1 class="mt-5 text-3xl font-bold tracking-tight text-slate-900 sm:text-5xl">
+          Relieve Back Pain &amp; Master <span class="text-emerald-700">Posture Correction</span>
+        </h1>
+
+        <p class="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-slate-600 sm:text-lg">
+          Simple, daily targeted movement routines and ergonomic principles designed to restore spinal alignment and strengthen core stability.
+        </p>
+
+        <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
+          <a
+            href="#exercises"
+            class="rounded-lg bg-emerald-700 px-5 py-3 text-sm font-semibold text-white hover:bg-emerald-800"
+          >
+            Explore Daily Exercises &rarr;
+          </a>
+          <a
+            href="#overview"
+            class="rounded-lg border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+          >
+            Read Summary
+          </a>
+        </div>
       </div>
-      <div>
-        <div>03</div>
-        <h3>Ergonomic Reset</h3>
-        <p>Adjust monitor height to eye level and keep feet flat on the floor to maintain neutral alignment.</p>
-        <span>Workstation Check</span>
+    </section>
+
+    <main class="mx-auto max-w-5xl space-y-16 px-4 py-14">
+      <!-- TL;DR Summary -->
+      <section id="overview" class="rounded-xl border border-emerald-200 bg-emerald-50/70 p-6 sm:p-8">
+        <div class="flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-wider text-emerald-800">
+          <span class="rounded bg-emerald-100 px-2.5 py-1">TL;DR Quick Summary</span>
+          <span class="rounded bg-white px-2.5 py-1 text-slate-700 ring-1 ring-emerald-200">
+            Answer Engine Optimized
+          </span>
+        </div>
+
+        <h2 class="mt-4 text-xl font-bold text-slate-900 sm:text-2xl">
+          What is the most effective way to correct posture and relieve lower back pain?
+        </h2>
+
+        <p class="mt-3 text-base leading-relaxed text-slate-700">
+          Effective posture correction combines targeted thoracic spine extension stretches, core stabilization exercises (such as dead bugs and planks), and ergonomic workstation adjustments. Performing 5-minute daily movement snacks reduces lumbar disc pressure, relieves muscular fatigue, and establishes sustainable spinal support within 4 to 6 weeks.
+        </p>
+      </section>
+
+      <!-- Core Pillar Exercises -->
+      <section id="exercises">
+        <div class="max-w-2xl">
+          <h2 class="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
+            Core Pillar Exercises
+          </h2>
+          <p class="mt-2 text-slate-600">
+            Daily targeted movements to relieve muscle tightness and build structural stability.
+          </p>
+        </div>
+
+        <div class="mt-8 grid gap-6 md:grid-cols-3">
+          <div class="flex flex-col justify-between rounded-xl border border-slate-200 bg-white p-6">
+            <div>
+              <div class="inline-block rounded-md bg-slate-100 px-2.5 py-1 text-xs font-bold text-slate-700">
+                01
+              </div>
+              <h3 class="mt-4 text-lg font-bold text-slate-900">Thoracic Extension</h3>
+              <p class="mt-2 text-sm leading-relaxed text-slate-600">
+                Reverses forward-slumping computer posture by gently opening the chest and mid-back spine.
+              </p>
+            </div>
+            <span class="mt-6 inline-block w-fit rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-800">
+              2 Mins Daily
+            </span>
+          </div>
+
+          <div class="flex flex-col justify-between rounded-xl border border-slate-200 bg-white p-6">
+            <div>
+              <div class="inline-block rounded-md bg-slate-100 px-2.5 py-1 text-xs font-bold text-slate-700">
+                02
+              </div>
+              <h3 class="mt-4 text-lg font-bold text-slate-900">Glute &amp; Core Activation</h3>
+              <p class="mt-2 text-sm leading-relaxed text-slate-600">
+                Strengthens deep abdominal muscles and gluteal bridges to stabilize the pelvic girdle.
+              </p>
+            </div>
+            <span class="mt-6 inline-block w-fit rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-800">
+              3 Mins Daily
+            </span>
+          </div>
+
+          <div class="flex flex-col justify-between rounded-xl border border-slate-200 bg-white p-6">
+            <div>
+              <div class="inline-block rounded-md bg-slate-100 px-2.5 py-1 text-xs font-bold text-slate-700">
+                03
+              </div>
+              <h3 class="mt-4 text-lg font-bold text-slate-900">Ergonomic Reset</h3>
+              <p class="mt-2 text-sm leading-relaxed text-slate-600">
+                Adjust monitor height to eye level and keep feet flat on the floor to maintain neutral alignment.
+              </p>
+            </div>
+            <span class="mt-6 inline-block w-fit rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700">
+              Workstation Check
+            </span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Comparison Table -->
+      <section id="comparison">
+        <div class="max-w-2xl">
+          <h2 class="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
+            Comparing Posture Approaches
+          </h2>
+          <p class="mt-2 text-slate-600">
+            Active movement vs. passive posture support braces.
+          </p>
+        </div>
+
+        <div class="mt-6 overflow-x-auto rounded-xl border border-slate-200 bg-white">
+          <table class="w-full border-collapse text-left text-sm">
+            <thead class="border-b border-slate-200 bg-slate-50 text-xs font-semibold uppercase tracking-wider text-slate-600">
+              <tr>
+                <th class="px-5 py-3.5">Approach</th>
+                <th class="px-5 py-3.5">Primary Benefit</th>
+                <th class="px-5 py-3.5">Long-Term Impact</th>
+                <th class="px-5 py-3.5">Recommendation</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-200 text-slate-700">
+              <tr>
+                <td class="px-5 py-4 font-semibold text-slate-900">Active Core Exercises</td>
+                <td class="px-5 py-4">Strengthens stabilizing muscles naturally</td>
+                <td class="px-5 py-4">High (Sustainable results)</td>
+                <td class="px-5 py-4">
+                  <span class="inline-block rounded-full bg-emerald-100 px-3 py-1 text-xs font-semibold text-emerald-800">
+                    Recommended
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td class="px-5 py-4 font-semibold text-slate-900">Passive Posture Braces</td>
+                <td class="px-5 py-4">Temporary tactile reminder</td>
+                <td class="px-5 py-4">Low (May weaken muscles if overused)</td>
+                <td class="px-5 py-4">
+                  <span class="inline-block rounded-full bg-amber-100 px-3 py-1 text-xs font-semibold text-amber-800">
+                    Use Short-Term Only
+                  </span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section id="faq">
+        <h2 class="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
+          Frequently Asked Questions
+        </h2>
+
+        <div class="mt-6 space-y-3">
+          <details class="group rounded-xl border border-slate-200 bg-white p-5">
+            <summary class="flex cursor-pointer list-none items-center justify-between font-semibold text-slate-900">
+              <span>How long does it take to see posture improvements?</span>
+              <span class="text-xs text-slate-500 transition-transform group-open:rotate-180">&#9660;</span>
+            </summary>
+            <p class="mt-3 text-sm leading-relaxed text-slate-600">
+              Most individuals experience reduced muscle tension within 7 to 10 days of daily targeted stretching. Noticeable structural posture alignment typically occurs within 4 to 6 weeks of consistent core activation.
+            </p>
+          </details>
+
+          <details class="group rounded-xl border border-slate-200 bg-white p-5">
+            <summary class="flex cursor-pointer list-none items-center justify-between font-semibold text-slate-900">
+              <span>What is the best sleeping position for lower back pain?</span>
+              <span class="text-xs text-slate-500 transition-transform group-open:rotate-180">&#9660;</span>
+            </summary>
+            <p class="mt-3 text-sm leading-relaxed text-slate-600">
+              Sleeping on your back with a small pillow under your knees maintains the natural lumbar curve. Side sleepers should place a supportive pillow between their knees to align the hips and spine.
+            </p>
+          </details>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-200 bg-white py-8">
+      <div class="mx-auto flex max-w-5xl flex-col items-center justify-between gap-2 px-4 text-sm text-slate-500 sm:flex-row">
+        <p>Health &amp; Wellness Guide &copy; 2026</p>
+        <p>Engineered for Google Search &amp; AI Answer Engines (AEO/GEO).</p>
       </div>
-    </div>
-  </section>
-
-  <section>
-    <h2>Comparing Posture Approaches</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Approach</th>
-          <th>Primary Benefit</th>
-          <th>Long-Term Impact</th>
-          <th>Recommendation</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>Active Core Exercises</strong></td>
-          <td>Strengthens stabilizing muscles naturally</td>
-          <td>High (Sustainable)</td>
-          <td><span>Recommended</span></td>
-        </tr>
-        <tr>
-          <td><strong>Passive Posture Braces</strong></td>
-          <td>Temporary tactile reminder</td>
-          <td>Low (Muscle atrophy risk)</td>
-          <td><span>Short-Term Only</span></td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
-
-  <section>
-    <h2>Frequently Asked Questions</h2>
-    <details>
-      <summary><span>How long does it take to see posture improvements?</span></summary>
-      <p>Most individuals experience reduced muscle tension within 7 to 10 days of daily targeted stretching. Noticeable structural posture alignment typically occurs within 4 to 6 weeks of consistent core activation.</p>
-    </details>
-    <details>
-      <summary><span>What is the best sleeping position for lower back pain?</span></summary>
-      <p>Sleeping on your back with a small pillow under your knees maintains the natural lumbar curve. Side sleepers should place a supportive pillow between their knees to align the hips and spine.</p>
-    </details>
-  </section>
-</main>
-
-<footer>
-  <p><strong>Health &amp; Wellness Guide &copy; 2026</strong></p>
-  <p>Engineered for Google Search &amp; AI Answer Engines (AEO/GEO).</p>
-</footer>
+    </footer>
+  </body>
+</html>
