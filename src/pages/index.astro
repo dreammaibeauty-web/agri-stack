@@ -24,6 +24,10 @@ const faqs = [
     q: "How often should I adjust my workstation?",
     a: "Reset your workstation at the start of each work block, and take a 1–2 minute movement break every 30–45 minutes. Consistency matters more than a single perfect setup.",
   },
+  {
+    q: "When should I see a doctor for back pain?",
+    a: "Seek clinical care for severe or worsening pain, numbness, weakness, loss of bladder or bowel control, unexplained weight loss, or pain after trauma. These can be red flags requiring urgent assessment.",
+  },
 ];
 
 const schemaData = {
@@ -51,7 +55,7 @@ const schemaData = {
       "publisher": { "@id": `${siteUrl}/#organization` },
       "author": {
         "@type": "Person",
-        "name": "[Real Author Name, Credentials]",
+        "name": "[Clinician Name, Credentials]",
         "url": `${siteUrl}/about/`,
       },
       "datePublished": "2026-01-01",
@@ -74,16 +78,17 @@ const schemaData = {
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
     <title>{pageTitle}</title>
     <meta name="description" content={pageDescription} />
     <meta name="robots" content="index,follow" />
-
     <link rel="canonical" href={canonicalUrl} />
+
+    <!-- Required by output rules: load Tailwind via CDN and do not let Astro process it -->
+    <script is:inline src="https://cdn.tailwindcss.com"></script>
 
     <script
       type="application/ld+json"
@@ -91,199 +96,1059 @@ const schemaData = {
     ></script>
   </head>
 
-  <body>
+  <body class="min-h-screen bg-slate-50 text-slate-800 antialiased">
+    <!-- ============ PRIMARY NAV (no headings here) ============ -->
+    <header
+      class="sticky top-0 z-40 border-b border-slate-200/70 bg-white/80 backdrop-blur"
+    >
+      <nav
+        class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8"
+        aria-label="Primary"
+      >
+        <a href="/" class="flex items-center gap-2 text-slate-900">
+          <span
+            class="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500 to-sky-500 text-white shadow-sm"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="h-5 w-5"
+              aria-hidden="true"
+            >
+              <path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"></path>
+            </svg>
+          </span>
+          <span class="text-sm font-semibold tracking-tight"
+            >Health &amp; Posture Guide</span
+          >
+        </a>
+
+        <div
+          class="hidden items-center gap-6 text-sm font-medium text-slate-600 md:flex"
+        >
+          <a href="#routine" class="hover:text-indigo-600">Routine</a>
+          <a href="#comparison" class="hover:text-indigo-600">Compare</a>
+          <a href="#faq" class="hover:text-indigo-600">FAQ</a>
+          <a href="#related" class="hover:text-indigo-600">Resources</a>
+        </div>
+
+        <a
+          href="#routine"
+          class="inline-flex items-center gap-1.5 rounded-lg bg-indigo-600 px-3.5 py-2 text-sm font-semibold text-white shadow-sm ring-1 ring-inset ring-white/10 transition hover:bg-indigo-500"
+        >
+          Start routine
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="h-4 w-4"
+            aria-hidden="true"
+          >
+            <path d="M5 12h14M13 5l7 7-7 7"></path>
+          </svg>
+        </a>
+      </nav>
+    </header>
+
     <main>
-      <!-- 1. Hero Banner -->
-      <section aria-labelledby="hero-title">
-        <h1 id="hero-title">
-          Relieve Back Pain &amp; Master Posture Correction in 5 Minutes a Day
-        </h1>
-        <p>
-          Evidence-based daily movement routines, thoracic extension, core
-          activation, and ergonomic workstation principles to reduce tension and
-          improve posture.
-        </p>
+      <!-- ============ 1. HERO BANNER ============ -->
+      <section
+        id="top"
+        class="relative overflow-hidden bg-gradient-to-b from-indigo-50 via-sky-50 to-slate-50"
+      >
+        <div
+          class="pointer-events-none absolute -top-32 right-0 h-96 w-96 rounded-full bg-indigo-200/40 blur-3xl"
+        >
+        </div>
+        <div
+          class="pointer-events-none absolute -bottom-24 left-0 h-96 w-96 rounded-full bg-sky-200/40 blur-3xl"
+        >
+        </div>
 
-        <p>
-          <a href="#routine">Start the 5-minute routine</a>
-        </p>
+        <div
+          class="relative mx-auto max-w-6xl px-4 pb-24 pt-16 sm:px-6 lg:px-8 lg:pt-24"
+        >
+          <div class="mx-auto max-w-3xl text-center">
+            <span
+              class="inline-flex items-center gap-2 rounded-full border border-indigo-200 bg-white/70 px-3 py-1 text-xs font-semibold text-indigo-700 shadow-sm"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="h-4 w-4"
+                aria-hidden="true"
+              >
+                <path
+                  d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M5.6 18.4l2.8-2.8M15.6 8.4l2.8-2.8"
+                ></path>
+              </svg>
+              Evidence-Informed · 2026 Guide
+            </span>
 
-        <ul>
-          <li>Evidence-informed routine</li>
-          <li>7–10 days to less tension*</li>
-          <li>4–6 weeks for alignment*</li>
-          <li>Medically reviewed by [Real Clinician Name, Credentials]</li>
-        </ul>
-        <p><small>*Typical timelines; individual results vary.</small></p>
-      </section>
+            <h1
+              class="mt-6 text-balance text-4xl font-black tracking-tight text-slate-900 sm:text-5xl lg:text-6xl"
+            >
+              Relieve Back Pain &amp; Master Posture Correction in 5 Minutes a
+              Day
+            </h1>
 
-      <!-- 2. Answer-First TL;DR Box -->
-      <section aria-labelledby="answer-title">
-        <h2 id="answer-title">
-          Back Pain Relief and Posture Correction: 5-Minute Answer
-        </h2>
-        <div>
-          <p>
-            Back pain relief and posture correction start with a daily 5-minute
-            routine: open the chest with thoracic extension, activate the core,
-            adjust your workstation, and repeat consistently. Most people feel
-            less muscle tension within 7–10 days; visible posture alignment often
-            takes 4–6 weeks. Use the routine below and seek clinical care for
-            severe or persistent pain.
-          </p>
+            <p
+              class="mx-auto mt-5 max-w-2xl text-balance text-lg leading-relaxed text-slate-600"
+            >
+              Evidence-based daily movement routines, thoracic extension, core
+              activation, and ergonomic workstation principles to reduce tension
+              and improve posture — without complicated programs.
+            </p>
+
+            <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
+              <a
+                href="#routine"
+                class="inline-flex items-center gap-2 rounded-xl bg-indigo-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-indigo-600/20 transition hover:bg-indigo-500"
+              >
+                Start the 5-minute routine
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="h-4 w-4"
+                  aria-hidden="true"
+                >
+                  <path d="M5 12h14M13 5l7 7-7 7"></path>
+                </svg>
+              </a>
+              <a
+                href="#answer"
+                class="inline-flex items-center gap-2 rounded-xl border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-700 shadow-sm transition hover:border-indigo-300 hover:text-indigo-700"
+              >
+                Read the quick answer
+              </a>
+            </div>
+
+            <ul
+              role="list"
+              class="mx-auto mt-10 grid max-w-3xl grid-cols-2 gap-3 text-left sm:grid-cols-4"
+            >
+              <li
+                class="flex items-center gap-2 rounded-xl border border-slate-200 bg-white/80 px-3 py-2 shadow-sm"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="h-4 w-4 flex-none text-emerald-600"
+                  aria-hidden="true"
+                >
+                  <path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3Z"></path>
+                  <path d="m9 12 2 2 4-4"></path>
+                </svg>
+                <span class="text-xs font-semibold text-slate-700"
+                  >Evidence-informed</span
+                >
+              </li>
+              <li
+                class="flex items-center gap-2 rounded-xl border border-slate-200 bg-white/80 px-3 py-2 shadow-sm"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="h-4 w-4 flex-none text-emerald-600"
+                  aria-hidden="true"
+                >
+                  <path d="m5 12 5 5L20 7"></path>
+                </svg>
+                <span class="text-xs font-semibold text-slate-700"
+                  >Clinician-reviewed</span
+                >
+              </li>
+              <li
+                class="flex items-center gap-2 rounded-xl border border-slate-200 bg-white/80 px-3 py-2 shadow-sm"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="h-4 w-4 flex-none text-indigo-600"
+                  aria-hidden="true"
+                >
+                  <circle cx="12" cy="12" r="9"></circle>
+                  <path d="M12 7v5l3 2"></path>
+                </svg>
+                <span class="text-xs font-semibold text-slate-700"
+                  >5 min / day</span
+                >
+              </li>
+              <li
+                class="flex items-center gap-2 rounded-xl border border-slate-200 bg-white/80 px-3 py-2 shadow-sm"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="h-4 w-4 flex-none text-indigo-600"
+                  aria-hidden="true"
+                >
+                  <circle cx="12" cy="12" r="9"></circle>
+                  <circle cx="12" cy="12" r="5"></circle>
+                  <circle cx="12" cy="12" r="1.5" fill="currentColor"></circle>
+                </svg>
+                <span class="text-xs font-semibold text-slate-700"
+                  >4–6 week timeline</span
+                >
+              </li>
+            </ul>
+            <p class="mt-3 text-xs text-slate-500">
+              *Typical timelines; individual results vary.
+            </p>
+          </div>
         </div>
       </section>
 
-      <!-- 3. Three-Column Feature / Pillar Grid -->
-      <section id="routine" aria-labelledby="pillars-title">
-        <h2 id="pillars-title">
-          3 Pillars of Back Pain Relief and Posture Correction
-        </h2>
+      <!-- ============ 2. ANSWER-FIRST TL;DR ============ -->
+      <section id="answer" class="mx-auto -mt-10 max-w-5xl px-4 sm:px-6 lg:px-8">
+        <div
+          class="rounded-2xl border border-indigo-100 bg-white p-6 shadow-xl shadow-indigo-100/50 ring-1 ring-indigo-500/5 sm:p-8"
+        >
+          <div class="flex flex-col gap-4 sm:flex-row sm:items-start">
+            <span
+              class="flex h-11 w-11 flex-none items-center justify-center rounded-xl bg-indigo-600 text-white shadow-md shadow-indigo-600/20"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="h-5 w-5"
+                aria-hidden="true"
+              >
+                <path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"></path>
+              </svg>
+            </span>
+            <div>
+              <div class="flex flex-wrap items-center gap-2">
+                <span
+                  class="inline-block rounded-full bg-indigo-50 px-2 py-0.5 text-[10px] font-bold uppercase tracking-widest text-indigo-700"
+                  >Quick Answer</span
+                >
+                <span
+                  class="text-[10px] font-medium uppercase tracking-widest text-slate-400"
+                  >~50 words</span
+                >
+              </div>
+              <h2
+                id="answer-title"
+                class="mt-2 text-xl font-bold tracking-tight text-slate-900 sm:text-2xl"
+              >
+                Back Pain Relief &amp; Posture Correction in Brief
+              </h2>
+              <p class="mt-3 text-base leading-relaxed text-slate-700">
+                Back pain relief and posture correction start with a daily
+                5-minute routine: open the chest with thoracic extension,
+                activate the core, adjust your workstation, and repeat
+                consistently. Most people feel less muscle tension within 7–10
+                days; visible posture alignment often takes 4–6 weeks. Use the
+                routine below and seek clinical care for severe or persistent
+                pain.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-        <div>
-          <article>
-            <h3>1. Thoracic Extension and Chest Opening</h3>
-            <p>
+      <!-- ============ 3. THREE-COLUMN PILLAR GRID ============ -->
+      <section
+        id="routine"
+        class="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8 lg:py-24"
+      >
+        <div class="mx-auto max-w-2xl text-center">
+          <span
+            class="text-xs font-bold uppercase tracking-[0.2em] text-indigo-600"
+            >The Three Pillars</span
+          >
+          <h2
+            class="mt-3 text-balance text-3xl font-black tracking-tight text-slate-900 sm:text-4xl"
+          >
+            The 3 Pillars of Back Pain Relief &amp; Posture Correction
+          </h2>
+          <p class="mt-4 text-slate-600">
+            Each pillar targets a different mechanism. Do all three for a
+            complete, evidence-informed routine.
+          </p>
+        </div>
+
+        <div class="mt-12 grid gap-6 md:grid-cols-3">
+          <!-- Card 1 -->
+          <article
+            class="group relative flex flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:border-indigo-300 hover:shadow-lg"
+          >
+            <span
+              class="flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-50 text-indigo-600 transition group-hover:bg-indigo-600 group-hover:text-white"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="h-6 w-6"
+                aria-hidden="true"
+              >
+                <path d="M3 12h4l2-6 4 12 2-6h6"></path>
+              </svg>
+            </span>
+            <h3 class="mt-5 text-lg font-bold text-slate-900">
+              1. Thoracic Extension &amp; Chest Opening
+            </h3>
+            <p class="mt-2 text-sm leading-relaxed text-slate-600">
               Counter rounded shoulders with gentle thoracic extension, doorway
               chest stretches, and controlled breathing. Keep range comfortable
               and avoid forcing the neck.
             </p>
+            <ul class="mt-4 space-y-1.5 text-sm text-slate-600">
+              <li class="flex gap-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="mt-0.5 h-4 w-4 flex-none text-emerald-600"
+                  aria-hidden="true"
+                >
+                  <path d="m5 12 5 5L20 7"></path>
+                </svg>
+                Doorway chest opener — 30s × 2
+              </li>
+              <li class="flex gap-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="mt-0.5 h-4 w-4 flex-none text-emerald-600"
+                  aria-hidden="true"
+                >
+                  <path d="m5 12 5 5L20 7"></path>
+                </svg>
+                Foam roller thoracic extension — 60s
+              </li>
+              <li class="flex gap-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="mt-0.5 h-4 w-4 flex-none text-emerald-600"
+                  aria-hidden="true"
+                >
+                  <path d="m5 12 5 5L20 7"></path>
+                </svg>
+                Wall angels — 8–10 reps
+              </li>
+            </ul>
           </article>
 
-          <article>
-            <h3>2. Core Activation and Spinal Stability</h3>
-            <p>
+          <!-- Card 2 -->
+          <article
+            class="group relative flex flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:border-indigo-300 hover:shadow-lg"
+          >
+            <span
+              class="flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-50 text-indigo-600 transition group-hover:bg-indigo-600 group-hover:text-white"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="h-6 w-6"
+                aria-hidden="true"
+              >
+                <circle cx="12" cy="12" r="9"></circle>
+                <circle cx="12" cy="12" r="5"></circle>
+                <circle cx="12" cy="12" r="1.5" fill="currentColor"></circle>
+              </svg>
+            </span>
+            <h3 class="mt-5 text-lg font-bold text-slate-900">
+              2. Core Activation &amp; Spinal Stability
+            </h3>
+            <p class="mt-2 text-sm leading-relaxed text-slate-600">
               Use dead bugs, bird dogs, and low-impact bracing to build trunk
-              control. The goal is steady, pain-free activation—not maximal
+              control. The goal is steady, pain-free activation — not maximal
               exertion.
             </p>
+            <ul class="mt-4 space-y-1.5 text-sm text-slate-600">
+              <li class="flex gap-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="mt-0.5 h-4 w-4 flex-none text-emerald-600"
+                  aria-hidden="true"
+                >
+                  <path d="m5 12 5 5L20 7"></path>
+                </svg>
+                Dead bugs — 6–8 per side
+              </li>
+              <li class="flex gap-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="mt-0.5 h-4 w-4 flex-none text-emerald-600"
+                  aria-hidden="true"
+                >
+                  <path d="m5 12 5 5L20 7"></path>
+                </svg>
+                Bird dogs — 6–8 per side
+              </li>
+              <li class="flex gap-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="mt-0.5 h-4 w-4 flex-none text-emerald-600"
+                  aria-hidden="true"
+                >
+                  <path d="m5 12 5 5L20 7"></path>
+                </svg>
+                Low-impact bracing — 3 × 10s holds
+              </li>
+            </ul>
           </article>
 
-          <article>
-            <h3>3. Ergonomic Workstation Setup</h3>
-            <p>
+          <!-- Card 3 -->
+          <article
+            class="group relative flex flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:border-indigo-300 hover:shadow-lg"
+          >
+            <span
+              class="flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-50 text-indigo-600 transition group-hover:bg-indigo-600 group-hover:text-white"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="h-6 w-6"
+                aria-hidden="true"
+              >
+                <rect x="3" y="4" width="18" height="12" rx="2"></rect>
+                <path d="M8 20h8M12 16v4"></path>
+              </svg>
+            </span>
+            <h3 class="mt-5 text-lg font-bold text-slate-900">
+              3. Ergonomic Workstation Setup
+            </h3>
+            <p class="mt-2 text-sm leading-relaxed text-slate-600">
               Set screen height, elbow angle, feet support, and movement breaks.
               A neutral setup reduces sustained load and supports the daily
               routine.
             </p>
+            <ul class="mt-4 space-y-1.5 text-sm text-slate-600">
+              <li class="flex gap-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="mt-0.5 h-4 w-4 flex-none text-emerald-600"
+                  aria-hidden="true"
+                >
+                  <path d="m5 12 5 5L20 7"></path>
+                </svg>
+                Screen top at eye level
+              </li>
+              <li class="flex gap-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="mt-0.5 h-4 w-4 flex-none text-emerald-600"
+                  aria-hidden="true"
+                >
+                  <path d="m5 12 5 5L20 7"></path>
+                </svg>
+                Elbows at ~90° with relaxed shoulders
+              </li>
+              <li class="flex gap-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="mt-0.5 h-4 w-4 flex-none text-emerald-600"
+                  aria-hidden="true"
+                >
+                  <path d="m5 12 5 5L20 7"></path>
+                </svg>
+                Movement break every 30–45 min
+              </li>
+            </ul>
           </article>
         </div>
       </section>
 
-      <!-- 4. Side-by-Side Comparison Table -->
-      <section aria-labelledby="comparison-title">
-        <h2 id="comparison-title">
-          Back Pain and Posture Approaches Compared
-        </h2>
+      <!-- ============ 4. SIDE-BY-SIDE COMPARISON TABLE ============ -->
+      <section id="comparison" class="bg-slate-900 text-slate-100">
+        <div class="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8 lg:py-24">
+          <div class="mx-auto max-w-2xl text-center">
+            <span
+              class="text-xs font-bold uppercase tracking-[0.2em] text-sky-400"
+              >Compare Approaches</span
+            >
+            <h2
+              class="mt-3 text-balance text-3xl font-black tracking-tight text-white sm:text-4xl"
+            >
+              Back Pain &amp; Posture Approaches Compared
+            </h2>
+            <p class="mt-4 text-slate-300">
+              Understand what each option is good for — and where it stops.
+            </p>
+          </div>
 
-        <table>
-          <caption>
-            Comparison of common back pain and posture correction approaches
-          </caption>
-          <thead>
-            <tr>
-              <th scope="col">Approach</th>
-              <th scope="col">Best for</th>
-              <th scope="col">Time/effort</th>
-              <th scope="col">Role and cautions</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">Daily 5-minute movement routine</th>
-              <td>Mild tension, mobility, habit building</td>
-              <td>5 min/day</td>
-              <td>Low-cost foundation; stop if pain worsens.</td>
-            </tr>
-            <tr>
-              <th scope="row">Ergonomic workstation adjustment</th>
-              <td>Sitting-related strain</td>
-              <td>15–30 min setup</td>
-              <td>Supports neutral posture; needs movement breaks.</td>
-            </tr>
-            <tr>
-              <th scope="row">Passive support (brace, massage)</th>
-              <td>Short-term comfort</td>
-              <td>Varies</td>
-              <td>Not a substitute for active strengthening.</td>
-            </tr>
-            <tr>
-              <th scope="row">Clinical rehab / physiotherapy</th>
-              <td>Persistent, severe, or neurological symptoms</td>
-              <td>Varies</td>
-              <td>Use for diagnosis and tailored care.</td>
-            </tr>
-          </tbody>
-        </table>
+          <div
+            class="mt-10 overflow-hidden rounded-2xl border border-slate-700 bg-slate-800/50 shadow-2xl"
+          >
+            <div class="overflow-x-auto">
+              <table class="w-full min-w-[720px] text-left text-sm">
+                <caption class="sr-only">
+                  Comparison of common back pain and posture correction
+                  approaches
+                </caption>
+                <thead
+                  class="bg-slate-900/80 text-xs uppercase tracking-wider text-slate-400"
+                >
+                  <tr>
+                    <th scope="col" class="px-5 py-4 font-semibold">
+                      Approach
+                    </th>
+                    <th scope="col" class="px-5 py-4 font-semibold">
+                      Best for
+                    </th>
+                    <th scope="col" class="px-5 py-4 font-semibold">
+                      Time / Effort
+                    </th>
+                    <th scope="col" class="px-5 py-4 font-semibold">
+                      Role &amp; Cautions
+                    </th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-700/70">
+                  <tr class="transition hover:bg-slate-800/70">
+                    <th
+                      scope="row"
+                      class="px-5 py-4 text-left font-semibold text-white"
+                    >
+                      Daily 5-minute movement routine
+                    </th>
+                    <td class="px-5 py-4 text-slate-300">
+                      Mild tension, mobility, habit building
+                    </td>
+                    <td class="px-5 py-4 text-slate-300">5 min/day</td>
+                    <td class="px-5 py-4 text-slate-300">
+                      Low-cost foundation; stop if pain worsens.
+                    </td>
+                  </tr>
+                  <tr class="transition hover:bg-slate-800/70">
+                    <th
+                      scope="row"
+                      class="px-5 py-4 text-left font-semibold text-white"
+                    >
+                      Ergonomic workstation adjustment
+                    </th>
+                    <td class="px-5 py-4 text-slate-300">
+                      Sitting-related strain
+                    </td>
+                    <td class="px-5 py-4 text-slate-300">
+                      15–30 min setup
+                    </td>
+                    <td class="px-5 py-4 text-slate-300">
+                      Supports neutral posture; needs movement breaks.
+                    </td>
+                  </tr>
+                  <tr class="transition hover:bg-slate-800/70">
+                    <th
+                      scope="row"
+                      class="px-5 py-4 text-left font-semibold text-white"
+                    >
+                      Passive support (brace, massage)
+                    </th>
+                    <td class="px-5 py-4 text-slate-300">
+                      Short-term comfort
+                    </td>
+                    <td class="px-5 py-4 text-slate-300">Varies</td>
+                    <td class="px-5 py-4 text-slate-300">
+                      Not a substitute for active strengthening.
+                    </td>
+                  </tr>
+                  <tr class="transition hover:bg-slate-800/70">
+                    <th
+                      scope="row"
+                      class="px-5 py-4 text-left font-semibold text-white"
+                    >
+                      Clinical rehab / physiotherapy
+                    </th>
+                    <td class="px-5 py-4 text-slate-300">
+                      Persistent, severe, or neurological symptoms
+                    </td>
+                    <td class="px-5 py-4 text-slate-300">Varies</td>
+                    <td class="px-5 py-4 text-slate-300">
+                      Use for diagnosis and tailored care.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
 
-        <ul>
-          <li>
-            The movement routine is the daily foundation; workstation setup
-            removes recurring strain.
-          </li>
-          <li>
-            Passive supports can help comfort but should not replace active
-            control.
-          </li>
-          <li>
-            Seek clinical care for severe, progressive, or neurological symptoms.
-          </li>
-        </ul>
+          <ul class="mt-8 grid gap-3 sm:grid-cols-3">
+            <li
+              class="flex gap-3 rounded-xl bg-slate-800/60 p-4 ring-1 ring-slate-700"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="mt-0.5 h-4 w-4 flex-none text-sky-400"
+                aria-hidden="true"
+              >
+                <path d="m5 12 5 5L20 7"></path>
+              </svg>
+              <p class="text-sm text-slate-300">
+                The movement routine is the daily foundation; workstation setup
+                removes recurring strain.
+              </p>
+            </li>
+            <li
+              class="flex gap-3 rounded-xl bg-slate-800/60 p-4 ring-1 ring-slate-700"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="mt-0.5 h-4 w-4 flex-none text-sky-400"
+                aria-hidden="true"
+              >
+                <path d="m5 12 5 5L20 7"></path>
+              </svg>
+              <p class="text-sm text-slate-300">
+                Passive supports can help comfort but should not replace active
+                control.
+              </p>
+            </li>
+            <li
+              class="flex gap-3 rounded-xl bg-slate-800/60 p-4 ring-1 ring-slate-700"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="mt-0.5 h-4 w-4 flex-none text-sky-400"
+                aria-hidden="true"
+              >
+                <path d="m5 12 5 5L20 7"></path>
+              </svg>
+              <p class="text-sm text-slate-300">
+                Seek clinical care for severe, progressive, or neurological
+                symptoms.
+              </p>
+            </li>
+          </ul>
+        </div>
       </section>
 
-      <!-- 5. Interactive FAQ Section -->
-      <section aria-labelledby="faq-title">
-        <h2 id="faq-title">Frequently Asked Questions</h2>
+      <!-- ============ 5. INTERACTIVE FAQ (native <details>, no JS) ============ -->
+      <section
+        id="faq"
+        class="mx-auto max-w-4xl px-4 py-20 sm:px-6 lg:px-8 lg:py-24"
+      >
+        <div class="text-center">
+          <span
+            class="text-xs font-bold uppercase tracking-[0.2em] text-indigo-600"
+            >Answers</span
+          >
+          <h2
+            class="mt-3 text-balance text-3xl font-black tracking-tight text-slate-900 sm:text-4xl"
+          >
+            Frequently Asked Questions
+          </h2>
+          <p class="mt-4 text-slate-600">
+            Direct answers to the questions people ask most about back pain and
+            posture correction.
+          </p>
+        </div>
 
-        {faqs.map(({ q, a }) => (
-          <details>
-            <summary>
-              <h3>{q}</h3>
-            </summary>
-            <p>{a}</p>
-          </details>
-        ))}
+        <div class="mt-10 space-y-3">
+          {
+            faqs.map(({ q, a }) => (
+              <details
+                class="group rounded-2xl border border-slate-200 bg-white shadow-sm transition open:border-indigo-200 open:shadow-md"
+              >
+                <summary class="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 [&::-webkit-details-marker]:hidden">
+                  <h3 class="text-base font-semibold text-slate-900">{q}</h3>
+                  <span class="flex h-8 w-8 flex-none items-center justify-center rounded-full bg-slate-100 text-slate-500 transition group-open:rotate-180 group-open:bg-indigo-600 group-open:text-white">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="h-4 w-4"
+                      aria-hidden="true"
+                    >
+                      <path d="m6 9 6 6 6-6" />
+                    </svg>
+                  </span>
+                </summary>
+                <div class="border-t border-slate-100 px-5 py-4 text-sm leading-relaxed text-slate-600">
+                  {a}
+                </div>
+              </details>
+            ))
+          }
+        </div>
       </section>
 
-      <!-- Internal Linking Hub -->
-      <section aria-labelledby="related-title">
-        <h2 id="related-title">Related Guides and Next Steps</h2>
-        <p>
-          Use these related resources to build a complete posture and back pain
-          relief cluster:
-        </p>
-        <ul>
-          <li>
-            <a href="/thoracic-extension-routine/">
-              Thoracic extension routine for rounded shoulders
+      <!-- ============ 6. INTERNAL LINKING HUB ============ -->
+      <section id="related" class="bg-white">
+        <div class="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8 lg:py-24">
+          <div class="mx-auto max-w-2xl text-center">
+            <span
+              class="text-xs font-bold uppercase tracking-[0.2em] text-indigo-600"
+              >Next Steps</span
+            >
+            <h2
+              class="mt-3 text-balance text-3xl font-black tracking-tight text-slate-900 sm:text-4xl"
+            >
+              Related Guides &amp; Internal Resources
+            </h2>
+            <p class="mt-4 text-slate-600">
+              Follow the internal-linking cluster to go deeper on each pillar of
+              this back pain and posture correction guide.
+            </p>
+          </div>
+
+          <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <a
+              href="/thoracic-extension-routine/"
+              class="group flex flex-col rounded-2xl border border-slate-200 bg-slate-50 p-5 transition hover:-translate-y-0.5 hover:border-indigo-300 hover:bg-white hover:shadow-lg"
+            >
+              <span
+                class="flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-100 text-indigo-600 transition group-hover:bg-indigo-600 group-hover:text-white"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="h-5 w-5"
+                  aria-hidden="true"
+                >
+                  <path d="M3 12h4l2-6 4 12 2-6h6" />
+                </svg>
+              </span>
+              <p class="mt-4 text-sm font-bold text-slate-900">
+                Thoracic Extension Routine for Rounded Shoulders
+              </p>
+              <p class="mt-1 text-xs text-slate-500">Pillar 1 · 5-min guide</p>
+              <span
+                class="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-indigo-600 group-hover:gap-2 transition-all"
+              >
+                Read
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="h-3 w-3"
+                  aria-hidden="true"
+                >
+                  <path d="M5 12h14M13 5l7 7-7 7" />
+                </svg>
+              </span>
             </a>
-          </li>
-          <li>
-            <a href="/core-activation-exercises/">
-              Core activation exercises for spinal stability
+
+            <a
+              href="/core-activation-exercises/"
+              class="group flex flex-col rounded-2xl border border-slate-200 bg-slate-50 p-5 transition hover:-translate-y-0.5 hover:border-indigo-300 hover:bg-white hover:shadow-lg"
+            >
+              <span
+                class="flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-100 text-indigo-600 transition group-hover:bg-indigo-600 group-hover:text-white"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="h-5 w-5"
+                  aria-hidden="true"
+                >
+                  <circle cx="12" cy="12" r="9" />
+                  <circle cx="12" cy="12" r="5" />
+                  <circle cx="12" cy="12" r="1.5" fill="currentColor" />
+                </svg>
+              </span>
+              <p class="mt-4 text-sm font-bold text-slate-900">
+                Core Activation Exercises for Spinal Stability
+              </p>
+              <p class="mt-1 text-xs text-slate-500">Pillar 2 · 5-min guide</p>
+              <span
+                class="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-indigo-600 group-hover:gap-2 transition-all"
+              >
+                Read
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="h-3 w-3"
+                  aria-hidden="true"
+                >
+                  <path d="M5 12h14M13 5l7 7-7 7" />
+                </svg>
+              </span>
             </a>
-          </li>
-          <li>
-            <a href="/ergonomic-workstation-guide/">
-              Ergonomic workstation setup guide
+
+            <a
+              href="/ergonomic-workstation-guide/"
+              class="group flex flex-col rounded-2xl border border-slate-200 bg-slate-50 p-5 transition hover:-translate-y-0.5 hover:border-indigo-300 hover:bg-white hover:shadow-lg"
+            >
+              <span
+                class="flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-100 text-indigo-600 transition group-hover:bg-indigo-600 group-hover:text-white"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="h-5 w-5"
+                  aria-hidden="true"
+                >
+                  <rect x="3" y="4" width="18" height="12" rx="2" />
+                  <path d="M8 20h8M12 16v4" />
+                </svg>
+              </span>
+              <p class="mt-4 text-sm font-bold text-slate-900">
+                Ergonomic Workstation Setup Guide
+              </p>
+              <p class="mt-1 text-xs text-slate-500">Pillar 3 · 15-min guide</p>
+              <span
+                class="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-indigo-600 group-hover:gap-2 transition-all"
+              >
+                Read
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="h-3 w-3"
+                  aria-hidden="true"
+                >
+                  <path d="M5 12h14M13 5l7 7-7 7" />
+                </svg>
+              </span>
             </a>
-          </li>
-          <li>
-            <a href="/back-pain-red-flags/">
-              Back pain red flags: when to seek care
+
+            <a
+              href="/back-pain-red-flags/"
+              class="group flex flex-col rounded-2xl border border-slate-200 bg-slate-50 p-5 transition hover:-translate-y-0.5 hover:border-indigo-300 hover:bg-white hover:shadow-lg"
+            >
+              <span
+                class="flex h-10 w-10 items-center justify-center rounded-lg bg-amber-100 text-amber-600 transition group-hover:bg-amber-500 group-hover:text-white"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="h-5 w-5"
+                  aria-hidden="true"
+                >
+                  <path d="M12 9v4M12 17h.01" />
+                  <path
+                    d="M10.3 3.9 2.4 18a2 2 0 0 0 1.7 3h15.8a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"
+                  />
+                </svg>
+              </span>
+              <p class="mt-4 text-sm font-bold text-slate-900">
+                Back Pain Red Flags: When to Seek Care
+              </p>
+              <p class="mt-1 text-xs text-slate-500">Safety · 4-min guide</p>
+              <span
+                class="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-amber-600 group-hover:gap-2 transition-all"
+              >
+                Read
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="h-3 w-3"
+                  aria-hidden="true"
+                >
+                  <path d="M5 12h14M13 5l7 7-7 7" />
+                </svg>
+              </span>
             </a>
-          </li>
-        </ul>
+          </div>
+        </div>
       </section>
     </main>
 
-    <!-- Footer: no H2 headings in footer -->
-    <footer>
-      <nav aria-label="Footer internal links">
-        <a href="/">Back pain and posture correction pillar page</a>
-        <a href="/about/">About and editorial review</a>
-        <a href="/contact/">Contact</a>
-      </nav>
+    <!-- ============ FOOTER (no headings) ============ -->
+    <footer class="border-t border-slate-200 bg-slate-50">
+      <div
+        class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-4 py-8 sm:flex-row sm:px-6 lg:px-8"
+      >
+        <div class="flex items-center gap-2 text-sm">
+          <span
+            class="flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-br from-indigo-500 to-sky-500 text-white"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="h-4 w-4"
+              aria-hidden="true"
+            >
+              <path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z" />
+            </svg>
+          </span>
+          <span class="font-semibold text-slate-800"
+            >Health &amp; Posture Guide</span
+          >
+        </div>
+
+        <nav
+          class="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-slate-600"
+          aria-label="Footer internal links"
+        >
+          <a href="/" class="hover:text-indigo-600"
+            >Back Pain &amp; Posture Pillar</a
+          >
+          <a href="/about/" class="hover:text-indigo-600"
+            >About &amp; Editorial Review</a
+          >
+          <a href="/contact/" class="hover:text-indigo-600">Contact</a>
+          <a href="/privacy/" class="hover:text-indigo-600">Privacy</a>
+        </nav>
+      </div>
     </footer>
   </body>
 </html>
