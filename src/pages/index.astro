@@ -1,1 +1,289 @@
-\--- // src/pages/index.astro const pageTitle = "Relieve Back Pain &amp; Master Posture Correction | 5-Min Guide"; const pageDescription = "Evidence-based 5-minute daily movement routines, thoracic extension, core activation, and ergonomic workstation principles for back pain relief and posture correction."; const siteUrl = "https://dreammaibeauty-web-health-site.vercel.app"; const schemaData = { "@context": "https://schema.org", "@graph": [ { "@type": "WebSite", "@id": \`${siteUrl}/#website\`, "url": siteUrl, "name": "Health &amp; Posture Guide", "description": pageDescription }, { "@type": "Organization", "@id": \`${siteUrl}/#organization\`, "name": "Health Guide Inc", "url": siteUrl }, { "@type": "Article", "@id": \`${siteUrl}/#article\`, "headline": pageTitle, "description": pageDescription, "mainEntityOfPage": siteUrl, "publisher": { "@id": \`${siteUrl}/#organization\` } }, { "@type": "FAQPage", "@id": \`${siteUrl}/#faq\`, "mainEntity": [ { "@type": "Question", "name": "How long does it take to see posture improvements?", "acceptedAnswer": { "@type": "Answer", "text": "Most individuals experience reduced muscle tension within 7 to 10 days of daily targeted stretching. Noticeable structural posture alignment typically occurs within 4 to 6 weeks." } }, { "@type": "Question", "name": "What is the best sleeping position for lower back pain?", "acceptedAnswer": { "@type": "Answer", "text": "Sleeping on your back with a small pillow under your knees maintains the natural lumbar curve. Side sleepers should place a supportive pillow between their knees." } } ] } ] }; ---       <link rel="canonical" href="{siteUrl}" />
+---
+// src/pages/index.astro
+const pageTitle = "Relieve Back Pain & Master Posture Correction | 5-Min Guide";
+const pageDescription =
+  "Evidence-based 5-minute daily movement routines, thoracic extension, core activation, and ergonomic workstation principles for back pain relief and posture correction.";
+
+const siteUrl = "https://dreammaibeauty-web-health-site.vercel.app";
+const canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString();
+
+const faqs = [
+  {
+    q: "How long does it take to see posture improvements?",
+    a: "Most individuals experience reduced muscle tension within 7 to 10 days of daily targeted stretching. Noticeable structural posture alignment typically occurs within 4 to 6 weeks.",
+  },
+  {
+    q: "What is the best sleeping position for lower back pain?",
+    a: "Sleeping on your back with a small pillow under your knees maintains the natural lumbar curve. Side sleepers should place a supportive pillow between their knees.",
+  },
+  {
+    q: "Can a 5-minute daily routine really help back pain?",
+    a: "A short daily routine can reduce stiffness and build consistency, especially when it targets thoracic mobility, core activation, and workstation setup. Severe or persistent pain should be assessed by a clinician.",
+  },
+  {
+    q: "How often should I adjust my workstation?",
+    a: "Reset your workstation at the start of each work block, and take a 1–2 minute movement break every 30–45 minutes. Consistency matters more than a single perfect setup.",
+  },
+];
+
+const schemaData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": `${siteUrl}/#website`,
+      "url": siteUrl,
+      "name": "Health & Posture Guide",
+      "description": pageDescription,
+    },
+    {
+      "@type": "Organization",
+      "@id": `${siteUrl}/#organization`,
+      "name": "Health Guide Inc",
+      "url": siteUrl,
+    },
+    {
+      "@type": "Article",
+      "@id": `${siteUrl}/#article`,
+      "headline": pageTitle,
+      "description": pageDescription,
+      "mainEntityOfPage": canonicalUrl,
+      "publisher": { "@id": `${siteUrl}/#organization` },
+      "author": {
+        "@type": "Person",
+        "name": "[Real Author Name, Credentials]",
+        "url": `${siteUrl}/about/`,
+      },
+      "datePublished": "2026-01-01",
+      "dateModified": "2026-01-01",
+    },
+    {
+      "@type": "FAQPage",
+      "@id": `${siteUrl}/#faq`,
+      "mainEntity": faqs.map(({ q, a }) => ({
+        "@type": "Question",
+        "name": q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": a,
+        },
+      })),
+    },
+  ],
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <meta name="robots" content="index,follow" />
+
+    <link rel="canonical" href={canonicalUrl} />
+
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(schemaData)}
+    ></script>
+  </head>
+
+  <body>
+    <main>
+      <!-- 1. Hero Banner -->
+      <section aria-labelledby="hero-title">
+        <h1 id="hero-title">
+          Relieve Back Pain &amp; Master Posture Correction in 5 Minutes a Day
+        </h1>
+        <p>
+          Evidence-based daily movement routines, thoracic extension, core
+          activation, and ergonomic workstation principles to reduce tension and
+          improve posture.
+        </p>
+
+        <p>
+          <a href="#routine">Start the 5-minute routine</a>
+        </p>
+
+        <ul>
+          <li>Evidence-informed routine</li>
+          <li>7–10 days to less tension*</li>
+          <li>4–6 weeks for alignment*</li>
+          <li>Medically reviewed by [Real Clinician Name, Credentials]</li>
+        </ul>
+        <p><small>*Typical timelines; individual results vary.</small></p>
+      </section>
+
+      <!-- 2. Answer-First TL;DR Box -->
+      <section aria-labelledby="answer-title">
+        <h2 id="answer-title">
+          Back Pain Relief and Posture Correction: 5-Minute Answer
+        </h2>
+        <div>
+          <p>
+            Back pain relief and posture correction start with a daily 5-minute
+            routine: open the chest with thoracic extension, activate the core,
+            adjust your workstation, and repeat consistently. Most people feel
+            less muscle tension within 7–10 days; visible posture alignment often
+            takes 4–6 weeks. Use the routine below and seek clinical care for
+            severe or persistent pain.
+          </p>
+        </div>
+      </section>
+
+      <!-- 3. Three-Column Feature / Pillar Grid -->
+      <section id="routine" aria-labelledby="pillars-title">
+        <h2 id="pillars-title">
+          3 Pillars of Back Pain Relief and Posture Correction
+        </h2>
+
+        <div>
+          <article>
+            <h3>1. Thoracic Extension and Chest Opening</h3>
+            <p>
+              Counter rounded shoulders with gentle thoracic extension, doorway
+              chest stretches, and controlled breathing. Keep range comfortable
+              and avoid forcing the neck.
+            </p>
+          </article>
+
+          <article>
+            <h3>2. Core Activation and Spinal Stability</h3>
+            <p>
+              Use dead bugs, bird dogs, and low-impact bracing to build trunk
+              control. The goal is steady, pain-free activation—not maximal
+              exertion.
+            </p>
+          </article>
+
+          <article>
+            <h3>3. Ergonomic Workstation Setup</h3>
+            <p>
+              Set screen height, elbow angle, feet support, and movement breaks.
+              A neutral setup reduces sustained load and supports the daily
+              routine.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <!-- 4. Side-by-Side Comparison Table -->
+      <section aria-labelledby="comparison-title">
+        <h2 id="comparison-title">
+          Back Pain and Posture Approaches Compared
+        </h2>
+
+        <table>
+          <caption>
+            Comparison of common back pain and posture correction approaches
+          </caption>
+          <thead>
+            <tr>
+              <th scope="col">Approach</th>
+              <th scope="col">Best for</th>
+              <th scope="col">Time/effort</th>
+              <th scope="col">Role and cautions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Daily 5-minute movement routine</th>
+              <td>Mild tension, mobility, habit building</td>
+              <td>5 min/day</td>
+              <td>Low-cost foundation; stop if pain worsens.</td>
+            </tr>
+            <tr>
+              <th scope="row">Ergonomic workstation adjustment</th>
+              <td>Sitting-related strain</td>
+              <td>15–30 min setup</td>
+              <td>Supports neutral posture; needs movement breaks.</td>
+            </tr>
+            <tr>
+              <th scope="row">Passive support (brace, massage)</th>
+              <td>Short-term comfort</td>
+              <td>Varies</td>
+              <td>Not a substitute for active strengthening.</td>
+            </tr>
+            <tr>
+              <th scope="row">Clinical rehab / physiotherapy</th>
+              <td>Persistent, severe, or neurological symptoms</td>
+              <td>Varies</td>
+              <td>Use for diagnosis and tailored care.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <ul>
+          <li>
+            The movement routine is the daily foundation; workstation setup
+            removes recurring strain.
+          </li>
+          <li>
+            Passive supports can help comfort but should not replace active
+            control.
+          </li>
+          <li>
+            Seek clinical care for severe, progressive, or neurological symptoms.
+          </li>
+        </ul>
+      </section>
+
+      <!-- 5. Interactive FAQ Section -->
+      <section aria-labelledby="faq-title">
+        <h2 id="faq-title">Frequently Asked Questions</h2>
+
+        {faqs.map(({ q, a }) => (
+          <details>
+            <summary>
+              <h3>{q}</h3>
+            </summary>
+            <p>{a}</p>
+          </details>
+        ))}
+      </section>
+
+      <!-- Internal Linking Hub -->
+      <section aria-labelledby="related-title">
+        <h2 id="related-title">Related Guides and Next Steps</h2>
+        <p>
+          Use these related resources to build a complete posture and back pain
+          relief cluster:
+        </p>
+        <ul>
+          <li>
+            <a href="/thoracic-extension-routine/">
+              Thoracic extension routine for rounded shoulders
+            </a>
+          </li>
+          <li>
+            <a href="/core-activation-exercises/">
+              Core activation exercises for spinal stability
+            </a>
+          </li>
+          <li>
+            <a href="/ergonomic-workstation-guide/">
+              Ergonomic workstation setup guide
+            </a>
+          </li>
+          <li>
+            <a href="/back-pain-red-flags/">
+              Back pain red flags: when to seek care
+            </a>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <!-- Footer: no H2 headings in footer -->
+    <footer>
+      <nav aria-label="Footer internal links">
+        <a href="/">Back pain and posture correction pillar page</a>
+        <a href="/about/">About and editorial review</a>
+        <a href="/contact/">Contact</a>
+      </nav>
+    </footer>
+  </body>
+</html>
