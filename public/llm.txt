@@ -1,8 +1,2 @@
-# Mind & Body Wellness
-
-> Evidence-based health guides on desk ergonomics, posture correction, and mental burnout prevention.
-
-## Key Topics
-- Desk Posture & Ergonomics
-- Digital Eye Strain Prevention (20-20-20 Rule)
-- Cortisol & Stress Management
+\# Dream Mai Beauty &amp; Health &gt; Dream Mai Beauty is a digital health and wellness platform providing evidence-based guides on posture alignment, back pain relief, and holistic health. ## Core Pages &amp; Resources - [Homepage](https://dreammaibeauty-web-health-site.vercel.app/): Main hub for health, wellness, and posture guides. - [Sitemap](https://dreammaibeauty-web-health-site.vercel.app/sitemap-index.xml): Complete XML index of published site pages. ## Primary Topics Covered - Posture correction and spine alignment exercises - Ergonomic workspace setups and daily habits - Daily back pain relief protocols and wellness strategies
+*
