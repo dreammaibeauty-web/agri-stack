@@ -1,1167 +1,1656 @@
----
-// src/pages/index.astro
-const pageTitle = "Relieve Back Pain & Master Posture Correction | 5-Min Guide";
-const pageDescription =
-  "Evidence-based 5-minute daily movement routines, thoracic extension, core activation, and ergonomic workstation principles for back pain relief and posture correction.";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-const siteUrl = "https://dreammaibeauty-web-health-site.vercel.app";
-const canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString();
+  <!-- PRIMARY SEO -->
+  <title>Agricultural Water Management in India (2026 Guide): Drip, PMKSY Subsidies & Efficiency</title>
+  <meta name="description" content="Expert guide to agricultural water management in India. Compare drip vs sprinkler vs flood irrigation, learn PMKSY/PDMC subsidy eligibility (55% for small farmers), and improve on-farm water efficiency from 30% to 95%.">
+  <meta name="keywords" content="agricultural water management India, drip irrigation subsidy, PMKSY PDMC, micro irrigation India, groundwater depletion, water use efficiency agriculture">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://example.com/agricultural-water-management-india">
 
-const faqs = [
-  {
-    q: "How long does it take to see posture improvements?",
-    a: "Most individuals experience reduced muscle tension within 7 to 10 days of daily targeted stretching. Noticeable structural posture alignment typically occurs within 4 to 6 weeks.",
-  },
-  {
-    q: "What is the best sleeping position for lower back pain?",
-    a: "Sleeping on your back with a small pillow under your knees maintains the natural lumbar curve. Side sleepers should place a supportive pillow between their knees.",
-  },
-  {
-    q: "Can a 5-minute daily routine really help back pain?",
-    a: "A short daily routine can reduce stiffness and build consistency, especially when it targets thoracic mobility, core activation, and workstation setup. Severe or persistent pain should be assessed by a clinician.",
-  },
-  {
-    q: "How often should I adjust my workstation?",
-    a: "Reset your workstation at the start of each work block, and take a 1–2 minute movement break every 30–45 minutes. Consistency matters more than a single perfect setup.",
-  },
-  {
-    q: "When should I see a doctor for back pain?",
-    a: "Seek clinical care for severe or worsening pain, numbness, weakness, loss of bladder or bowel control, unexplained weight loss, or pain after trauma. These can be red flags requiring urgent assessment.",
-  },
-];
+  <!-- OPEN GRAPH -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Agricultural Water Management in India: The Definitive 2026 Guide">
+  <meta property="og:description" content="From PMKSY subsidies to drip irrigation efficiency (80–95%), here's how India is solving its groundwater crisis—and what farmers can do today.">
+  <meta property="og:image" content="https://picsum.photos/seed/agriwater/1200/630">
+  <meta property="og:url" content="https://example.com/agricultural-water-management-india">
+  <meta property="og:site_name" content="AgriWater India">
 
-const schemaData = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "WebSite",
-      "@id": `${siteUrl}/#website`,
-      "url": siteUrl,
-      "name": "Health & Posture Guide",
-      "description": pageDescription,
+  <!-- TWITTER -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Agricultural Water Management in India: The Definitive 2026 Guide">
+  <meta name="twitter:description" content="Compare drip vs sprinkler vs flood irrigation, check PMKSY subsidy eligibility, and boost on-farm water efficiency.">
+  <meta name="twitter:image" content="https://picsum.photos/seed/agriwater/1200/630">
+
+  <!-- FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:wght@700;900&display=swap" rel="stylesheet">
+
+  <!-- JSON-LD: TechArticle -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "Agricultural Water Management in India: The Definitive Guide to Efficiency, Technology & Policy",
+    "description": "A comprehensive guide to agricultural water management in India, covering micro-irrigation technologies, PMKSY subsidies, groundwater challenges, and agronomic practices.",
+    "image": "https://picsum.photos/seed/agriwater/1200/630",
+    "author": {
+      "@type": "Person",
+      "name": "Dr. Rohan Patil",
+      "jobTitle": "Water Policy Researcher",
+      "affiliation": { "@type": "Organization", "name": "ICAR & IWMI" }
     },
-    {
+    "publisher": {
       "@type": "Organization",
-      "@id": `${siteUrl}/#organization`,
-      "name": "Health Guide Inc",
-      "url": siteUrl,
+      "name": "AgriWater India",
+      "logo": { "@type": "ImageObject", "url": "https://example.com/logo.png" }
     },
-    {
-      "@type": "Article",
-      "@id": `${siteUrl}/#article`,
-      "headline": pageTitle,
-      "description": pageDescription,
-      "mainEntityOfPage": canonicalUrl,
-      "publisher": { "@id": `${siteUrl}/#organization` },
-      "author": {
-        "@type": "Person",
-        "name": "[Clinician Name, Credentials]",
-        "url": `${siteUrl}/about/`,
-      },
-      "datePublished": "2026-01-01",
-      "dateModified": "2026-01-01",
-    },
-    {
-      "@type": "FAQPage",
-      "@id": `${siteUrl}/#faq`,
-      "mainEntity": faqs.map(({ q, a }) => ({
+    "datePublished": "2026-01-15",
+    "dateModified": "2026-11-22",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://example.com/agricultural-water-management-india" }
+  }
+  </script>
+
+  <!-- JSON-LD: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
         "@type": "Question",
-        "name": q,
+        "name": "What is the Per Drop More Crop (PDMC) scheme and how do I apply?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": a,
-        },
-      })),
-    },
-  ],
-};
----
+          "text": "PDMC is a component of PMKSY that provides financial assistance for micro-irrigation. Small/marginal farmers get 55% subsidy, others get 45%. To apply, visit your state's agriculture department portal or Common Service Centre (CSC) with land records and Aadhaar. The subsidy is now transferred directly (DBT) to reduce delays."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why is micro-irrigation adoption still low among small farmers if it's so beneficial?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "While the technology is proven, the adoption gap is real. Key barriers include high upfront capital costs, delays in subsidy disbursement (reported in ~46% of cases in some regions), and a lack of technical knowledge for maintenance. The government is addressing this via the Micro Irrigation Fund and digital DBT, but awareness and last-mile credit access remain challenges."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the groundwater situation in India's rice-wheat belt?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It is critical. In Haryana, the stage of groundwater extraction is 136.75%, with some districts exceeding 200%. In Punjab, water tables are falling by 0.4–1.0 meters per year, and 111–115 of 153 assessment units are over-exploited. Solutions require a landscape-scale approach—not just farm-level efficiency, but changing cropping patterns and incentivizing low-water crops."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What are the most cost-effective water-saving techniques for a smallholder?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Laser land leveling (ensures uniform water distribution), mulching (reduces evaporation), and Direct Seeded Rice (DSR) are low-cost, high-impact agronomic practices. When combined with a subsidized drip system for high-value crops, the payback period can be 0.5 to 2 years."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does community participation help in water management?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The Hiware Bazar model in Maharashtra is the gold standard. Through integrated watershed development and Gram Sabha participation, the village raised its water table from 20–25 feet to 70–80 feet, changed cropping patterns to high-value horticulture, and saw reverse migration. It proves that top-down policy must be paired with local ownership for long-term sustainability."
+        }
+      }
+    ]
+  }
+  </script>
 
-<!doctype html>
-<html lang="en" class="scroll-smooth">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{pageTitle}</title>
-    <meta name="description" content={pageDescription} />
-    <meta name="robots" content="index,follow" />
-    <link rel="canonical" href={canonicalUrl} />
+  <!-- JSON-LD: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://example.com" },
+      { "@type": "ListItem", "position": 2, "name": "Agriculture", "item": "https://example.com/agriculture" },
+      { "@type": "ListItem", "position": 3, "name": "Water Management", "item": "https://example.com/agriculture/water-management" },
+      { "@type": "ListItem", "position": 4, "name": "India", "item": "https://example.com/agricultural-water-management-india" }
+    ]
+  }
+  </script>
 
-<meta name="google-site-verification" content="AS3WJ_WYDefEPWoJrg-UYFtQzJThVnWHlXP3WvRWPyg" />
+  <!-- JSON-LD: Dataset -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    "name": "Micro-Irrigation Coverage in India (PMKSY/PDMC)",
+    "description": "Data on hectares covered under micro-irrigation since 2015-16 via the Per Drop More Crop scheme.",
+    "creator": { "@type": "Organization", "name": "Ministry of Agriculture & Farmers Welfare, GoI" },
+    "temporalCoverage": "2015-16/2026",
+    "variableMeasured": "Hectares under micro-irrigation",
+    "spatialCoverage": "India"
+  }
+  </script>
 
-<!-- Google Tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-4Z7Z31JE6N"></script>
-<script is:inline>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <!-- EMBEDDED PRODUCTION CSS (styles.css) -->
+  <style>
+    /* ==========================================================================
+       1. DESIGN TOKENS & VARIABLES
+       ========================================================================== */
+    :root {
+      --color-primary: #0B6E4F;
+      --color-primary-dark: #074F38;
+      --color-primary-light: #E8F4F0;
+      --color-primary-border: #B7DEC9;
+      --color-accent-warm: #D97706;
+      --color-bg-body: #FAF9F5;
+      --color-bg-surface: #FFFFFF;
+      --color-bg-subtle: #F3F4F1;
+      --color-text-main: #18221E;
+      --color-text-muted: #475550;
+      --color-text-light: #64746E;
+      --color-border: #E2E8F0;
+      --color-border-strong: #CBD5E1;
 
-  gtag('config', 'G-4Z7Z31JE6N');
-</script>
+      --font-serif: 'Merriweather', Georgia, Cambria, "Times New Roman", serif;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
+      --radius-sm: 6px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-full: 9999px;
 
+      --shadow-xs: 0 1px 2px rgba(11, 110, 79, 0.04);
+      --shadow-sm: 0 2px 8px rgba(24, 34, 30, 0.05);
+      --shadow-md: 0 8px 24px rgba(24, 34, 30, 0.08);
 
-    <!-- Required for preview rendering: Tailwind CDN -->
-    <script is:inline src="https://cdn.tailwindcss.com"></script>
+      --container-max: 1160px;
+      --header-height: 72px;
+      --transition-base: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
 
-    <script
-      type="application/ld+json"
-      set:html={JSON.stringify(schemaData)}
-    ></script>
-  </head>
+    /* ==========================================================================
+       2. RESET & BASE TYPOGRAPHY
+       ========================================================================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
 
-  <body class="min-h-screen bg-slate-50 text-slate-800 antialiased">
-    <!-- ============ PRIMARY NAV ============ -->
-    <header
-      class="sticky top-0 z-40 border-b border-slate-200/70 bg-white/80 backdrop-blur"
-    >
-      <nav
-        class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8"
-        aria-label="Primary"
-      >
-        <a href="/" class="flex items-center gap-2 text-slate-900">
-          <span
-            class="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500 to-sky-500 text-white shadow-sm"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="h-5 w-5"
-              aria-hidden="true"
-            >
-              <path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"></path>
-            </svg>
-          </span>
-          <span class="text-sm font-semibold tracking-tight"
-            >Health &amp; Posture Guide</span
-          >
-        </a>
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: calc(var(--header-height) + 24px);
+      -webkit-text-size-adjust: 100%;
+    }
 
-        <div
-          class="hidden items-center gap-6 text-sm font-medium text-slate-600 md:flex"
-        >
-          <a href="#routine" class="hover:text-indigo-600">Routine</a>
-          <a href="#comparison" class="hover:text-indigo-600">Compare</a>
-          <a href="#faq" class="hover:text-indigo-600">FAQ</a>
-          <a href="#related" class="hover:text-indigo-600">Resources</a>
-        </div>
+    body {
+      margin: 0;
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      line-height: 1.65;
+      color: var(--color-text-main);
+      background-color: var(--color-bg-body);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
 
-        <a
-          href="#routine"
-          class="inline-flex items-center gap-1.5 rounded-lg bg-indigo-600 px-3.5 py-2 text-sm font-semibold text-white shadow-sm ring-1 ring-inset ring-white/10 transition hover:bg-indigo-500"
-        >
-          Start routine
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="h-4 w-4"
-            aria-hidden="true"
-          >
-            <path d="M5 12h14M13 5l7 7-7 7"></path>
-          </svg>
-        </a>
+    h1, h2, h3, h4 {
+      font-family: var(--font-serif);
+      color: var(--color-text-main);
+      line-height: 1.25;
+      margin-top: 0;
+      letter-spacing: -0.015em;
+    }
+
+    h1 {
+      font-size: clamp(1.85rem, 3.6vw, 2.75rem);
+      font-weight: 900;
+      margin-bottom: 1.25rem;
+    }
+
+    h2 {
+      font-size: clamp(1.5rem, 2.6vw, 2.05rem);
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+
+    h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+
+    p {
+      margin-top: 0;
+      margin-bottom: 1.1rem;
+      color: var(--color-text-muted);
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    strong {
+      color: var(--color-text-main);
+      font-weight: 600;
+    }
+
+    a {
+      color: var(--color-primary);
+      text-decoration: none;
+      transition: color var(--transition-base);
+    }
+
+    a:hover {
+      color: var(--color-primary-dark);
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Accessibility Skip Link */
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 16px;
+      background: var(--color-primary);
+      color: #FFFFFF;
+      padding: 10px 18px;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      z-index: 1000;
+      transition: top 0.15s ease;
+    }
+
+    .skip-link:focus {
+      top: 16px;
+      color: #FFFFFF;
+      outline: 3px solid var(--color-accent-warm);
+    }
+
+    /* Layout Container */
+    .container {
+      width: 100%;
+      max-width: var(--container-max);
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 1.25rem;
+      padding-right: 1.25rem;
+    }
+
+    @media (min-width: 768px) {
+      .container {
+        padding-left: 2rem;
+        padding-right: 2rem;
+      }
+    }
+
+    /* ==========================================================================
+       3. STICKY HEADER & PURE-CSS MOBILE NAVIGATION
+       ========================================================================== */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 900;
+      background-color: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--color-border);
+      box-shadow: var(--shadow-xs);
+      height: var(--header-height);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 100%;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.625rem;
+      font-family: var(--font-serif);
+      font-weight: 900;
+      font-size: 1.2rem;
+      color: var(--color-text-main);
+      letter-spacing: -0.02em;
+    }
+
+    .logo:hover {
+      color: var(--color-primary);
+    }
+
+    .logo svg {
+      flex-shrink: 0;
+      transition: transform var(--transition-base);
+    }
+
+    .logo:hover svg {
+      transform: translateY(-1px) scale(1.05);
+    }
+
+    /* Visually hidden checkbox controlling mobile drawer */
+    .nav-checkbox {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    /* Primary Desktop Nav */
+    .primary-nav ul {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .primary-nav a {
+      font-size: 0.9375rem;
+      font-weight: 500;
+      color: var(--color-text-muted);
+      padding: 0.4rem 0;
+      position: relative;
+    }
+
+    .primary-nav a:not(.nav-cta):hover,
+    .primary-nav a:not(.nav-cta):focus-visible {
+      color: var(--color-primary);
+    }
+
+    .primary-nav a.nav-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--color-primary);
+      color: #FFFFFF;
+      font-weight: 600;
+      font-size: 0.875rem;
+      padding: 0.6rem 1.15rem;
+      border-radius: var(--radius-sm);
+      box-shadow: var(--shadow-xs);
+      transition: background-color var(--transition-base), transform var(--transition-base);
+    }
+
+    .primary-nav a.nav-cta:hover {
+      background-color: var(--color-primary-dark);
+      color: #FFFFFF;
+      transform: translateY(-1px);
+    }
+
+    /* Pure-CSS Mobile Hamburger Label */
+    .nav-toggle-label {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      width: 44px;
+      height: 44px;
+      padding: 8px;
+      background: transparent;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .nav-toggle-label span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background-color: var(--color-text-main);
+      border-radius: 2px;
+      transition: transform 0.25s ease, opacity 0.2s ease;
+    }
+
+    .nav-checkbox:focus-visible + .nav-toggle-label {
+      outline: 2px solid var(--color-primary);
+      outline-offset: 2px;
+    }
+
+    .nav-checkbox:checked + .nav-toggle-label span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .nav-checkbox:checked + .nav-toggle-label span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .nav-checkbox:checked + .nav-toggle-label span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    @media (max-width: 900px) {
+      .nav-toggle-label {
+        display: flex;
+      }
+
+      .primary-nav {
+        position: fixed;
+        top: var(--header-height);
+        left: 0;
+        right: 0;
+        background-color: var(--color-bg-surface);
+        border-bottom: 1px solid var(--color-border);
+        box-shadow: var(--shadow-md);
+        padding: 1.25rem;
+        transform: translateY(-12px);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+      }
+
+      .nav-checkbox:checked ~ .primary-nav {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .primary-nav ul {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.35rem;
+      }
+
+      .primary-nav a {
+        display: block;
+        padding: 0.75rem 0.5rem;
+        font-size: 1rem;
+        border-bottom: 1px solid var(--color-bg-subtle);
+      }
+
+      .primary-nav li:last-child a {
+        border-bottom: none;
+        margin-top: 0.5rem;
+        text-align: center;
+      }
+    }
+
+    /* ==========================================================================
+       4. BUTTONS
+       ========================================================================== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      font-family: var(--font-sans);
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 0.875rem 1.5rem;
+      border-radius: var(--radius-sm);
+      border: none;
+      cursor: pointer;
+      transition: background-color var(--transition-base), transform var(--transition-base), box-shadow var(--transition-base);
+    }
+
+    .btn-primary {
+      background-color: var(--color-primary);
+      color: #FFFFFF;
+      box-shadow: 0 4px 12px rgba(11, 110, 79, 0.22);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--color-primary-dark);
+      color: #FFFFFF;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(11, 110, 79, 0.28);
+    }
+
+    .btn-secondary {
+      background-color: var(--color-bg-surface);
+      color: var(--color-primary);
+      border: 1.5px solid var(--color-primary);
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--color-primary-light);
+    }
+
+    /* ==========================================================================
+       5. HERO SECTION
+       ========================================================================== */
+    .hero {
+      padding: 3rem 0 3.5rem;
+      background: linear-gradient(180deg, #FFFFFF 0%, var(--color-bg-body) 100%);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    @media (min-width: 960px) {
+      .hero {
+        padding: 4.5rem 0 4.5rem;
+      }
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    @media (min-width: 960px) {
+      .hero-grid {
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 3.5rem;
+      }
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--color-primary);
+      background-color: var(--color-primary-light);
+      padding: 0.35rem 0.75rem;
+      border-radius: var(--radius-full);
+      margin-bottom: 1rem;
+    }
+
+    .hero-sub {
+      font-size: 1.075rem;
+      line-height: 1.7;
+      color: var(--color-text-muted);
+      margin-bottom: 1.75rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.875rem;
+      align-items: center;
+    }
+
+    .trust-signals {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.65rem;
+      list-style: none;
+      padding: 1.5rem 0 0;
+      margin: 1.75rem 0 0;
+      border-top: 1px solid var(--color-border);
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--color-text-main);
+    }
+
+    @media (min-width: 560px) {
+      .trust-signals {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem 1.25rem;
+      }
+    }
+
+    .trust-signals li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+
+    .hero-image {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--color-border);
+      background: linear-gradient(135deg, #E8F4F0 0%, #D1EAE1 100%);
+    }
+
+    .hero-image img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+    }
+
+    .hero-caption {
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+      background-color: var(--color-bg-surface);
+      padding: 0.65rem 1rem;
+      border-top: 1px solid var(--color-border);
+    }
+
+    /* ==========================================================================
+       6. TL;DR ANSWER-FIRST CALLOUT
+       ========================================================================== */
+    .tldr-section {
+      padding: 2.75rem 0 1.5rem;
+    }
+
+    .tldr-box {
+      background-color: var(--color-primary-light);
+      border: 1px solid var(--color-primary-border);
+      border-left: 5px solid var(--color-primary);
+      border-radius: var(--radius-md);
+      padding: 1.75rem;
+      box-shadow: var(--shadow-xs);
+    }
+
+    @media (min-width: 768px) {
+      .tldr-box {
+        padding: 2rem 2.25rem;
+      }
+    }
+
+    .tldr-box h2 {
+      font-size: 1.25rem;
+      color: var(--color-primary-dark);
+      margin-bottom: 0.65rem;
+    }
+
+    .tldr-box p {
+      font-size: 1.03rem;
+      color: var(--color-text-main);
+      line-height: 1.7;
+    }
+
+    /* ==========================================================================
+       7. THREE PILLARS SECTION
+       ========================================================================== */
+    .pillars {
+      padding: 3.5rem 0;
+    }
+
+    .pillar-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 860px) {
+      .pillar-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.75rem;
+      }
+    }
+
+    .pillar-card {
+      background-color: var(--color-bg-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 1.75rem;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+    }
+
+    .pillar-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--color-primary-border);
+    }
+
+    .pillar-icon {
+      width: 48px;
+      height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      background-color: var(--color-primary-light);
+      border-radius: var(--radius-sm);
+      margin-bottom: 1.15rem;
+    }
+
+    .pillar-card h3 {
+      font-size: 1.15rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .pillar-card p {
+      font-size: 0.95rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .pillar-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* ==========================================================================
+       8. COMPARISON TABLE & KEY TAKEAWAYS
+       ========================================================================== */
+    .comparison {
+      padding: 3.5rem 0;
+      background-color: var(--color-bg-surface);
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .table-wrapper {
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-xs);
+      margin-bottom: 2rem;
+      background-color: var(--color-bg-surface);
+    }
+
+    table {
+      width: 100%;
+      min-width: 760px;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.9375rem;
+    }
+
+    thead {
+      background-color: var(--color-primary);
+      color: #FFFFFF;
+    }
+
+    thead th {
+      padding: 1rem 1.15rem;
+      font-family: var(--font-sans);
+      font-weight: 600;
+      font-size: 0.875rem;
+      letter-spacing: 0.02em;
+      border-bottom: 2px solid var(--color-primary-dark);
+    }
+
+    thead th:nth-child(2) {
+      background-color: var(--color-primary-dark);
+    }
+
+    tbody tr {
+      border-bottom: 1px solid var(--color-border);
+      transition: background-color 0.15s ease;
+    }
+
+    tbody tr:last-child {
+      border-bottom: none;
+    }
+
+    tbody tr:nth-child(even) {
+      background-color: var(--color-bg-body);
+    }
+
+    tbody tr:hover {
+      background-color: var(--color-primary-light);
+    }
+
+    tbody th[scope="row"] {
+      padding: 0.95rem 1.15rem;
+      font-weight: 600;
+      color: var(--color-text-main);
+      background-color: rgba(243, 244, 241, 0.55);
+      width: 22%;
+    }
+
+    tbody td {
+      padding: 0.95rem 1.15rem;
+      color: var(--color-text-muted);
+      vertical-align: top;
+    }
+
+    tbody td:nth-child(2) {
+      background-color: rgba(232, 244, 240, 0.45);
+      color: var(--color-text-main);
+    }
+
+    .takeaways {
+      background-color: var(--color-bg-subtle);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 1.5rem 1.75rem;
+    }
+
+    .takeaways h3 {
+      font-size: 1.15rem;
+      margin-bottom: 0.85rem;
+      color: var(--color-primary-dark);
+    }
+
+    .takeaways ul {
+      margin: 0;
+      padding-left: 1.25rem;
+      display: grid;
+      gap: 0.6rem;
+    }
+
+    .takeaways li {
+      color: var(--color-text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* ==========================================================================
+       9. STATIC CRAWLABLE PMKSY / PDMC SUBSIDY BREAKDOWN SECTION
+       ========================================================================== */
+    .subsidy-section {
+      padding: 3.75rem 0;
+      background-color: var(--color-bg-body);
+    }
+
+    .section-intro {
+      max-width: 780px;
+      font-size: 1.02rem;
+      margin-bottom: 2rem;
+    }
+
+    .subsidy-highlights {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+      margin-bottom: 2rem;
+    }
+
+    @media (min-width: 768px) {
+      .subsidy-highlights {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .stat-card {
+      background-color: var(--color-bg-surface);
+      border: 1px solid var(--color-border);
+      border-top: 4px solid var(--color-primary);
+      border-radius: var(--radius-md);
+      padding: 1.35rem 1.5rem;
+      box-shadow: var(--shadow-xs);
+    }
+
+    .stat-badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--color-primary);
+      margin-bottom: 0.35rem;
+    }
+
+    .stat-value {
+      font-family: var(--font-serif);
+      font-size: 1.65rem;
+      font-weight: 900;
+      color: var(--color-text-main);
+      margin-bottom: 0.35rem;
+    }
+
+    .stat-desc {
+      font-size: 0.875rem;
+      color: var(--color-text-muted);
+      margin: 0;
+    }
+
+    .subsidy-checklist-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin-top: 1.75rem;
+    }
+
+    @media (min-width: 820px) {
+      .subsidy-checklist-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .info-panel {
+      background-color: var(--color-bg-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 1.5rem 1.75rem;
+    }
+
+    .info-panel h3 {
+      font-size: 1.1rem;
+      color: var(--color-primary-dark);
+      margin-bottom: 0.85rem;
+    }
+
+    .info-panel ul,
+    .info-panel ol {
+      margin: 0;
+      padding-left: 1.25rem;
+      display: grid;
+      gap: 0.55rem;
+      font-size: 0.9375rem;
+      color: var(--color-text-muted);
+    }
+
+    .portal-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      margin-top: 1rem;
+    }
+
+    .portal-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.825rem;
+      font-weight: 600;
+      padding: 0.45rem 0.85rem;
+      border-radius: var(--radius-full);
+      background-color: var(--color-primary-light);
+      color: var(--color-primary-dark);
+      border: 1px solid var(--color-primary-border);
+    }
+
+    .portal-pill:hover {
+      background-color: var(--color-primary);
+      color: #FFFFFF;
+    }
+
+    /* ==========================================================================
+       10. NATIVE HTML5 <details>/<summary> FAQ ACCORDION
+       ========================================================================== */
+    .faq {
+      padding: 4rem 0;
+      background-color: var(--color-bg-surface);
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .accordion {
+      display: flex;
+      flex-direction: column;
+      gap: 0.875rem;
+      max-width: 900px;
+    }
+
+    details.accordion-item {
+      background-color: var(--color-bg-body);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-xs);
+      transition: border-color var(--transition-base), box-shadow var(--transition-base);
+    }
+
+    details.accordion-item[open] {
+      background-color: var(--color-bg-surface);
+      border-color: var(--color-primary-border);
+      box-shadow: var(--shadow-sm);
+    }
+
+    summary.accordion-summary {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1.2rem 1.4rem;
+      font-family: var(--font-sans);
+      font-size: 1.03rem;
+      font-weight: 600;
+      color: var(--color-text-main);
+      cursor: pointer;
+      user-select: none;
+      transition: background-color 0.15s ease, color 0.15s ease;
+    }
+
+    /* Hide default browser disclosure triangle */
+    summary.accordion-summary::-webkit-details-marker,
+    summary.accordion-summary::marker {
+      display: none;
+      content: "";
+    }
+
+    summary.accordion-summary:hover {
+      background-color: rgba(232, 244, 240, 0.45);
+      color: var(--color-primary);
+    }
+
+    summary.accordion-summary:focus-visible {
+      outline: 2px solid var(--color-primary);
+      outline-offset: -2px;
+    }
+
+    summary.accordion-summary::after {
+      content: "";
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230B6E4F' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+      transition: transform 0.25s ease;
+    }
+
+    details.accordion-item[open] > summary.accordion-summary {
+      color: var(--color-primary-dark);
+      background-color: rgba(232, 244, 240, 0.45);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    details.accordion-item[open] > summary.accordion-summary::after {
+      transform: rotate(180deg);
+    }
+
+    .accordion-content {
+      padding: 1.15rem 1.4rem 1.35rem;
+      font-size: 0.96rem;
+      line-height: 1.7;
+      color: var(--color-text-muted);
+    }
+
+    /* ==========================================================================
+       11. E-E-A-T (AUTHOR & TESTIMONIAL)
+       ========================================================================== */
+    .eeat {
+      padding: 3.5rem 0;
+      background-color: var(--color-bg-body);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .eeat-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 820px) {
+      .eeat-grid {
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 2rem;
+      }
+    }
+
+    .author-card {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      background-color: var(--color-bg-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 1.75rem;
+      box-shadow: var(--shadow-xs);
+    }
+
+    @media (min-width: 540px) {
+      .author-card {
+        flex-direction: row;
+        align-items: flex-start;
+      }
+    }
+
+    .author-card img {
+      width: 88px;
+      height: 88px;
+      border-radius: var(--radius-full);
+      object-fit: cover;
+      border: 3px solid var(--color-primary-border);
+      background-color: var(--color-primary-light);
+      flex-shrink: 0;
+    }
+
+    .author-card h3 {
+      margin-bottom: 0.2rem;
+      font-size: 1.15rem;
+    }
+
+    .author-role {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--color-primary);
+      margin-bottom: 0.65rem;
+    }
+
+    .author-card p:last-child {
+      font-size: 0.9375rem;
+    }
+
+    .testimonial-card {
+      position: relative;
+      background-color: var(--color-primary-light);
+      border: 1px solid var(--color-primary-border);
+      border-radius: var(--radius-md);
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .quote-mark {
+      font-family: var(--font-serif);
+      font-size: 3.25rem;
+      line-height: 0.8;
+      color: var(--color-primary);
+      opacity: 0.35;
+      margin-bottom: 0.35rem;
+    }
+
+    .testimonial-card blockquote {
+      margin: 0 0 1rem;
+    }
+
+    .testimonial-card blockquote p {
+      font-size: 1.02rem;
+      color: var(--color-text-main);
+      line-height: 1.6;
+    }
+
+    .testimonial-author {
+      font-size: 0.9rem;
+      color: var(--color-primary-dark);
+    }
+
+    /* ==========================================================================
+       12. INTERNAL LINKING HUB
+       ========================================================================== */
+    .learn-more {
+      padding: 4rem 0;
+    }
+
+    .cluster-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+
+    @media (min-width: 640px) {
+      .cluster-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 960px) {
+      .cluster-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .cluster-card {
+      background-color: var(--color-bg-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform var(--transition-base), border-color var(--transition-base), box-shadow var(--transition-base);
+    }
+
+    .cluster-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--color-primary);
+      box-shadow: var(--shadow-md);
+    }
+
+    .cluster-card h3 {
+      font-family: var(--font-sans);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--color-primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .cluster-card p {
+      font-size: 0.925rem;
+      margin-bottom: 1.15rem;
+    }
+
+    .cluster-link {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--color-text-main);
+      line-height: 1.4;
+      display: inline-block;
+    }
+
+    .cluster-card:hover .cluster-link {
+      color: var(--color-primary);
+    }
+
+    /* ==========================================================================
+       13. FOOTER
+       ========================================================================== */
+    .site-footer {
+      background-color: #13221C;
+      color: #CBD5D0;
+      padding: 2.5rem 0;
+      font-size: 0.9rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      align-items: center;
+      text-align: center;
+    }
+
+    .site-footer p {
+      color: #CBD5D0;
+      margin: 0;
+    }
+
+    .site-footer a {
+      color: #FFFFFF;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .site-footer a:hover {
+      color: #7ED4B6;
+    }
+
+    .footer-sources {
+      font-size: 0.825rem;
+      color: #9FB0A9;
+    }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- ============ HEADER / PURE-CSS NAV ============ -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a href="#overview" class="logo" aria-label="AgriWater India home">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M12 2C8 8 4 12 4 16a8 8 0 0016 0c0-4-4-8-8-14z" fill="#0B6E4F"/>
+          <path d="M9.5 16.5a2.5 2.5 0 002.5 2.5" stroke="#FFFFFF" stroke-width="1.75" stroke-linecap="round"/>
+        </svg>
+        <span>AgriWater India</span>
+      </a>
+
+      <!-- Pure CSS Mobile Toggle (Zero JS) -->
+      <input type="checkbox" id="nav-toggle" class="nav-checkbox" aria-label="Toggle navigation menu">
+      <label for="nav-toggle" class="nav-toggle-label" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </label>
+
+      <nav id="primaryNav" class="primary-nav" aria-label="Primary">
+        <ul>
+          <li><a href="#overview">Overview</a></li>
+          <li><a href="#technologies">Technologies</a></li>
+          <li><a href="#compare">Compare</a></li>
+          <li><a href="#subsidy-rates">Subsidy Rates</a></li>
+          <li><a href="#faq">FAQs</a></li>
+          <li><a href="#subsidy-rates" class="nav-cta">Check Subsidy Eligibility</a></li>
+        </ul>
       </nav>
-    </header>
+    </div>
+  </header>
 
-    <main>
-      <!-- ============ 1. HERO BANNER ============ -->
-      <section
-        id="top"
-        class="relative overflow-hidden bg-gradient-to-b from-indigo-50 via-sky-50 to-slate-50"
-      >
-        <div
-          class="pointer-events-none absolute -top-32 right-0 h-96 w-96 rounded-full bg-indigo-200/40 blur-3xl"
-        >
-        </div>
-        <div
-          class="pointer-events-none absolute -bottom-24 left-0 h-96 w-96 rounded-full bg-sky-200/40 blur-3xl"
-        >
-        </div>
+  <main id="main">
 
-        <div
-          class="relative mx-auto max-w-6xl px-4 pb-24 pt-16 sm:px-6 lg:px-8 lg:pt-24"
-        >
-          <div class="mx-auto max-w-3xl text-center">
-            <span
-              class="inline-flex items-center gap-2 rounded-full border border-indigo-200 bg-white/70 px-3 py-1 text-xs font-semibold text-indigo-700 shadow-sm"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="h-4 w-4"
-                aria-hidden="true"
-              >
-                <path
-                  d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M5.6 18.4l2.8-2.8M15.6 8.4l2.8-2.8"
-                ></path>
-              </svg>
-              Evidence-Informed · 2026 Guide
-            </span>
-
-            <h1
-              class="mt-6 text-balance text-4xl font-black tracking-tight text-slate-900 sm:text-5xl lg:text-6xl"
-            >
-              Relieve Back Pain &amp; Master Posture Correction in 5 Minutes a
-              Day
-            </h1>
-
-            <p
-              class="mx-auto mt-5 max-w-2xl text-balance text-lg leading-relaxed text-slate-600"
-            >
-              Evidence-based daily movement routines, thoracic extension, core
-              activation, and ergonomic workstation principles to reduce tension
-              and improve posture — without complicated programs.
-            </p>
-
-            <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
-              <a
-                href="#routine"
-                class="inline-flex items-center gap-2 rounded-xl bg-indigo-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-indigo-600/20 transition hover:bg-indigo-500"
-              >
-                Start the 5-minute routine
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="h-4 w-4"
-                  aria-hidden="true"
-                >
-                  <path d="M5 12h14M13 5l7 7-7 7"></path>
-                </svg>
-              </a>
-              <a
-                href="#answer"
-                class="inline-flex items-center gap-2 rounded-xl border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-700 shadow-sm transition hover:border-indigo-300 hover:text-indigo-700"
-              >
-                Read the quick answer
-              </a>
-            </div>
-
-            <ul
-              class="mx-auto mt-10 grid max-w-3xl grid-cols-2 gap-3 text-left sm:grid-cols-4"
-            >
-              <li
-                class="flex items-center gap-2 rounded-xl border border-slate-200 bg-white/80 px-3 py-2 shadow-sm"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="h-4 w-4 flex-none text-emerald-600"
-                  aria-hidden="true"
-                >
-                  <path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3Z"></path>
-                  <path d="m9 12 2 2 4-4"></path>
-                </svg>
-                <span class="text-xs font-semibold text-slate-700"
-                  >Evidence-informed</span
-                >
-              </li>
-              <li
-                class="flex items-center gap-2 rounded-xl border border-slate-200 bg-white/80 px-3 py-2 shadow-sm"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="h-4 w-4 flex-none text-emerald-600"
-                  aria-hidden="true"
-                >
-                  <path d="m5 12 5 5L20 7"></path>
-                </svg>
-                <span class="text-xs font-semibold text-slate-700"
-                  >Clinician-reviewed</span
-                >
-              </li>
-              <li
-                class="flex items-center gap-2 rounded-xl border border-slate-200 bg-white/80 px-3 py-2 shadow-sm"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="h-4 w-4 flex-none text-indigo-600"
-                  aria-hidden="true"
-                >
-                  <circle cx="12" cy="12" r="9"></circle>
-                  <path d="M12 7v5l3 2"></path>
-                </svg>
-                <span class="text-xs font-semibold text-slate-700"
-                  >5 min / day</span
-                >
-              </li>
-              <li
-                class="flex items-center gap-2 rounded-xl border border-slate-200 bg-white/80 px-3 py-2 shadow-sm"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="h-4 w-4 flex-none text-indigo-600"
-                  aria-hidden="true"
-                >
-                  <circle cx="12" cy="12" r="9"></circle>
-                  <circle cx="12" cy="12" r="5"></circle>
-                  <circle cx="12" cy="12" r="1.5" fill="currentColor"></circle>
-                </svg>
-                <span class="text-xs font-semibold text-slate-700"
-                  >4–6 week timeline</span
-                >
-              </li>
-            </ul>
-            <p class="mt-3 text-xs text-slate-500">
-              *Typical timelines; individual results vary.
-            </p>
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="overview">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <span class="hero-eyebrow">2026 Policy &amp; Agronomy Reference · 100% Static HTML</span>
+          <h1>Agricultural Water Management in India: The Definitive Guide to Efficiency, Technology &amp; Policy</h1>
+          <p class="hero-sub">India uses over 80% of its freshwater for agriculture, yet on-farm efficiency remains critically low at 25–35%. This guide cuts through the complexity—covering everything from government subsidies (PMKSY) to farm-level technologies (Drip, Sensors)—to help you maximize “More Crop Per Drop.”</p>
+          <div class="hero-actions">
+            <a href="#subsidy-rates" class="btn btn-primary">Explore Government Schemes &amp; Subsidies →</a>
+            <a href="#compare" class="btn btn-secondary">Compare Irrigation Systems</a>
           </div>
-        </div>
-      </section>
-
-      <!-- ============ 2. ANSWER-FIRST TL;DR ============ -->
-      <section id="answer" class="mx-auto -mt-10 max-w-5xl px-4 sm:px-6 lg:px-8">
-        <div
-          class="rounded-2xl border border-indigo-100 bg-white p-6 shadow-xl shadow-indigo-100/50 ring-1 ring-indigo-500/5 sm:p-8"
-        >
-          <div class="flex flex-col gap-4 sm:flex-row sm:items-start">
-            <span
-              class="flex h-11 w-11 flex-none items-center justify-center rounded-xl bg-indigo-600 text-white shadow-md shadow-indigo-600/20"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="h-5 w-5"
-                aria-hidden="true"
-              >
-                <path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"></path>
-              </svg>
-            </span>
-            <div>
-              <div class="flex flex-wrap items-center gap-2">
-                <span
-                  class="inline-block rounded-full bg-indigo-50 px-2 py-0.5 text-[10px] font-bold uppercase tracking-widest text-indigo-700"
-                  >Quick Answer</span
-                >
-                <span
-                  class="text-[10px] font-medium uppercase tracking-widest text-slate-400"
-                  >~50 words</span
-                >
-              </div>
-              <h2
-                id="answer-title"
-                class="mt-2 text-xl font-bold tracking-tight text-slate-900 sm:text-2xl"
-              >
-                Back Pain Relief &amp; Posture Correction in Brief
-              </h2>
-              <p class="mt-3 text-base leading-relaxed text-slate-700">
-                Back pain relief and posture correction start with a daily
-                5-minute routine: open the chest with thoracic extension,
-                activate the core, adjust your workstation, and repeat
-                consistently. Most people feel less muscle tension within 7–10
-                days; visible posture alignment often takes 4–6 weeks. Use the
-                routine below and seek clinical care for severe or persistent
-                pain.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ============ 3. THREE-COLUMN PILLAR GRID ============ -->
-      <section
-        id="routine"
-        class="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8 lg:py-24"
-      >
-        <div class="mx-auto max-w-2xl text-center">
-          <span
-            class="text-xs font-bold uppercase tracking-[0.2em] text-indigo-600"
-            >The Three Pillars</span
-          >
-          <h2
-            class="mt-3 text-balance text-3xl font-black tracking-tight text-slate-900 sm:text-4xl"
-          >
-            The 3 Pillars of Back Pain Relief &amp; Posture Correction
-          </h2>
-          <p class="mt-4 text-slate-600">
-            Each pillar targets a different mechanism. Do all three for a
-            complete, evidence-informed routine.
-          </p>
-        </div>
-
-        <div class="mt-12 grid gap-6 md:grid-cols-3">
-          <!-- Card 1 -->
-          <article
-            class="group relative flex flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:border-indigo-300 hover:shadow-lg"
-          >
-            <span
-              class="flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-50 text-indigo-600 transition group-hover:bg-indigo-600 group-hover:text-white"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="h-6 w-6"
-                aria-hidden="true"
-              >
-                <path d="M3 12h4l2-6 4 12 2-6h6"></path>
-              </svg>
-            </span>
-            <h3 class="mt-5 text-lg font-bold text-slate-900">
-              1. Thoracic Extension &amp; Chest Opening
-            </h3>
-            <p class="mt-2 text-sm leading-relaxed text-slate-600">
-              Counter rounded shoulders with gentle thoracic extension, doorway
-              chest stretches, and controlled breathing. Keep range comfortable
-              and avoid forcing the neck.
-            </p>
-            <ul class="mt-4 space-y-1.5 text-sm text-slate-600">
-              <li class="flex gap-2">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="mt-0.5 h-4 w-4 flex-none text-emerald-600"
-                  aria-hidden="true"
-                >
-                  <path d="m5 12 5 5L20 7"></path>
-                </svg>
-                Doorway chest opener — 30s × 2
-              </li>
-              <li class="flex gap-2">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="mt-0.5 h-4 w-4 flex-none text-emerald-600"
-                  aria-hidden="true"
-                >
-                  <path d="m5 12 5 5L20 7"></path>
-                </svg>
-                Foam roller thoracic extension — 60s
-              </li>
-              <li class="flex gap-2">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="mt-0.5 h-4 w-4 flex-none text-emerald-600"
-                  aria-hidden="true"
-                >
-                  <path d="m5 12 5 5L20 7"></path>
-                </svg>
-                Wall angels — 8–10 reps
-              </li>
-            </ul>
-          </article>
-
-          <!-- Card 2 -->
-          <article
-            class="group relative flex flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:border-indigo-300 hover:shadow-lg"
-          >
-            <span
-              class="flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-50 text-indigo-600 transition group-hover:bg-indigo-600 group-hover:text-white"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="h-6 w-6"
-                aria-hidden="true"
-              >
-                <circle cx="12" cy="12" r="9"></circle>
-                <circle cx="12" cy="12" r="5"></circle>
-                <circle cx="12" cy="12" r="1.5" fill="currentColor"></circle>
-              </svg>
-            </span>
-            <h3 class="mt-5 text-lg font-bold text-slate-900">
-              2. Core Activation &amp; Spinal Stability
-            </h3>
-            <p class="mt-2 text-sm leading-relaxed text-slate-600">
-              Use dead bugs, bird dogs, and low-impact bracing to build trunk
-              control. The goal is steady, pain-free activation — not maximal
-              exertion.
-            </p>
-            <ul class="mt-4 space-y-1.5 text-sm text-slate-600">
-              <li class="flex gap-2">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="mt-0.5 h-4 w-4 flex-none text-emerald-600"
-                  aria-hidden="true"
-                >
-                  <path d="m5 12 5 5L20 7"></path>
-                </svg>
-                Dead bugs — 6–8 per side
-              </li>
-              <li class="flex gap-2">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="mt-0.5 h-4 w-4 flex-none text-emerald-600"
-                  aria-hidden="true"
-                >
-                  <path d="m5 12 5 5L20 7"></path>
-                </svg>
-                Bird dogs — 6–8 per side
-              </li>
-              <li class="flex gap-2">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="mt-0.5 h-4 w-4 flex-none text-emerald-600"
-                  aria-hidden="true"
-                >
-                  <path d="m5 12 5 5L20 7"></path>
-                </svg>
-                Low-impact bracing — 3 × 10s holds
-              </li>
-            </ul>
-          </article>
-
-          <!-- Card 3 -->
-          <article
-            class="group relative flex flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:border-indigo-300 hover:shadow-lg"
-          >
-            <span
-              class="flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-50 text-indigo-600 transition group-hover:bg-indigo-600 group-hover:text-white"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="h-6 w-6"
-                aria-hidden="true"
-              >
-                <rect x="3" y="4" width="18" height="12" rx="2"></rect>
-                <path d="M8 20h8M12 16v4"></path>
-              </svg>
-            </span>
-            <h3 class="mt-5 text-lg font-bold text-slate-900">
-              3. Ergonomic Workstation Setup
-            </h3>
-            <p class="mt-2 text-sm leading-relaxed text-slate-600">
-              Set screen height, elbow angle, feet support, and movement breaks.
-              A neutral setup reduces sustained load and supports the daily
-              routine.
-            </p>
-            <ul class="mt-4 space-y-1.5 text-sm text-slate-600">
-              <li class="flex gap-2">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="mt-0.5 h-4 w-4 flex-none text-emerald-600"
-                  aria-hidden="true"
-                >
-                  <path d="m5 12 5 5L20 7"></path>
-                </svg>
-                Screen top at eye level
-              </li>
-              <li class="flex gap-2">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="mt-0.5 h-4 w-4 flex-none text-emerald-600"
-                  aria-hidden="true"
-                >
-                  <path d="m5 12 5 5L20 7"></path>
-                </svg>
-                Elbows at ~90° with relaxed shoulders
-              </li>
-              <li class="flex gap-2">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="mt-0.5 h-4 w-4 flex-none text-emerald-600"
-                  aria-hidden="true"
-                >
-                  <path d="m5 12 5 5L20 7"></path>
-                </svg>
-                Movement break every 30–45 min
-              </li>
-            </ul>
-          </article>
-        </div>
-      </section>
-
-      <!-- ============ 4. SIDE-BY-SIDE COMPARISON TABLE ============ -->
-      <section id="comparison" class="bg-slate-900 text-slate-100">
-        <div class="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8 lg:py-24">
-          <div class="mx-auto max-w-2xl text-center">
-            <span
-              class="text-xs font-bold uppercase tracking-[0.2em] text-sky-400"
-              >Compare Approaches</span
-            >
-            <h2
-              class="mt-3 text-balance text-3xl font-black tracking-tight text-white sm:text-4xl"
-            >
-              Back Pain &amp; Posture Approaches Compared
-            </h2>
-            <p class="mt-4 text-slate-300">
-              Understand what each option is good for — and where it stops.
-            </p>
-          </div>
-
-          <div
-            class="mt-10 overflow-hidden rounded-2xl border border-slate-700 bg-slate-800/50 shadow-2xl"
-          >
-            <div class="overflow-x-auto">
-              <table class="w-full min-w-[720px] text-left text-sm">
-                <caption class="sr-only">
-                  Comparison of common back pain and posture correction
-                  approaches
-                </caption>
-                <thead
-                  class="bg-slate-900/80 text-xs uppercase tracking-wider text-slate-400"
-                >
-                  <tr>
-                    <th scope="col" class="px-5 py-4 font-semibold">
-                      Approach
-                    </th>
-                    <th scope="col" class="px-5 py-4 font-semibold">
-                      Best for
-                    </th>
-                    <th scope="col" class="px-5 py-4 font-semibold">
-                      Time / Effort
-                    </th>
-                    <th scope="col" class="px-5 py-4 font-semibold">
-                      Role &amp; Cautions
-                    </th>
-                  </tr>
-                </thead>
-                <tbody class="divide-y divide-slate-700/70">
-                  <tr class="transition hover:bg-slate-800/70">
-                    <th
-                      scope="row"
-                      class="px-5 py-4 text-left font-semibold text-white"
-                    >
-                      Daily 5-minute movement routine
-                    </th>
-                    <td class="px-5 py-4 text-slate-300">
-                      Mild tension, mobility, habit building
-                    </td>
-                    <td class="px-5 py-4 text-slate-300">5 min/day</td>
-                    <td class="px-5 py-4 text-slate-300">
-                      Low-cost foundation; stop if pain worsens.
-                    </td>
-                  </tr>
-                  <tr class="transition hover:bg-slate-800/70">
-                    <th
-                      scope="row"
-                      class="px-5 py-4 text-left font-semibold text-white"
-                    >
-                      Ergonomic workstation adjustment
-                    </th>
-                    <td class="px-5 py-4 text-slate-300">
-                      Sitting-related strain
-                    </td>
-                    <td class="px-5 py-4 text-slate-300">
-                      15–30 min setup
-                    </td>
-                    <td class="px-5 py-4 text-slate-300">
-                      Supports neutral posture; needs movement breaks.
-                    </td>
-                  </tr>
-                  <tr class="transition hover:bg-slate-800/70">
-                    <th
-                      scope="row"
-                      class="px-5 py-4 text-left font-semibold text-white"
-                    >
-                      Passive support (brace, massage)
-                    </th>
-                    <td class="px-5 py-4 text-slate-300">
-                      Short-term comfort
-                    </td>
-                    <td class="px-5 py-4 text-slate-300">Varies</td>
-                    <td class="px-5 py-4 text-slate-300">
-                      Not a substitute for active strengthening.
-                    </td>
-                  </tr>
-                  <tr class="transition hover:bg-slate-800/70">
-                    <th
-                      scope="row"
-                      class="px-5 py-4 text-left font-semibold text-white"
-                    >
-                      Clinical rehab / physiotherapy
-                    </th>
-                    <td class="px-5 py-4 text-slate-300">
-                      Persistent, severe, or neurological symptoms
-                    </td>
-                    <td class="px-5 py-4 text-slate-300">Varies</td>
-                    <td class="px-5 py-4 text-slate-300">
-                      Use for diagnosis and tailored care.
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-
-          <ul class="mt-8 grid gap-3 sm:grid-cols-3">
-            <li
-              class="flex gap-3 rounded-xl bg-slate-800/60 p-4 ring-1 ring-slate-700"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="mt-0.5 h-4 w-4 flex-none text-sky-400"
-                aria-hidden="true"
-              >
-                <path d="m5 12 5 5L20 7"></path>
-              </svg>
-              <p class="text-sm text-slate-300">
-                The movement routine is the daily foundation; workstation setup
-                removes recurring strain.
-              </p>
-            </li>
-            <li
-              class="flex gap-3 rounded-xl bg-slate-800/60 p-4 ring-1 ring-slate-700"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="mt-0.5 h-4 w-4 flex-none text-sky-400"
-                aria-hidden="true"
-              >
-                <path d="m5 12 5 5L20 7"></path>
-              </svg>
-              <p class="text-sm text-slate-300">
-                Passive supports can help comfort but should not replace active
-                control.
-              </p>
-            </li>
-            <li
-              class="flex gap-3 rounded-xl bg-slate-800/60 p-4 ring-1 ring-slate-700"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="mt-0.5 h-4 w-4 flex-none text-sky-400"
-                aria-hidden="true"
-              >
-                <path d="m5 12 5 5L20 7"></path>
-              </svg>
-              <p class="text-sm text-slate-300">
-                Seek clinical care for severe, progressive, or neurological
-                symptoms.
-              </p>
-            </li>
+          <ul class="trust-signals">
+            <li>✅ Data from PIB, ICAR, IWMI &amp; Ministry of Jal Shakti</li>
+            <li>📊 115 Lakh+ Hectares under micro-irrigation</li>
+            <li>💧 80–95% efficiency with drip vs. 30–50% flood</li>
+            <li>🏆 Expert-reviewed content</li>
           </ul>
         </div>
-      </section>
-
-      <!-- ============ 5. INTERACTIVE FAQ ============ -->
-      <section
-        id="faq"
-        class="mx-auto max-w-4xl px-4 py-20 sm:px-6 lg:px-8 lg:py-24"
-      >
-        <div class="text-center">
-          <span
-            class="text-xs font-bold uppercase tracking-[0.2em] text-indigo-600"
-            >Answers</span
-          >
-          <h2
-            class="mt-3 text-balance text-3xl font-black tracking-tight text-slate-900 sm:text-4xl"
-          >
-            Frequently Asked Questions
-          </h2>
-          <p class="mt-4 text-slate-600">
-            Direct answers to the questions people ask most about back pain and
-            posture correction.
-          </p>
+        <div class="hero-image">
+          <img src="https://picsum.photos/seed/agriwater-hero/800/600"
+               alt="Drip irrigation system delivering water directly to crop roots in an Indian farm"
+               width="800" height="600" loading="eager" fetchpriority="high" decoding="async">
+          <div class="hero-caption">Precision root-zone delivery cuts evaporation loss by up to 50% compared to conventional surface flooding.</div>
         </div>
-
-        <div class="mt-10 space-y-3">
-          {
-            faqs.map(({ q, a }) => (
-              <details
-                class="group rounded-2xl border border-slate-200 bg-white shadow-sm transition open:border-indigo-200 open:shadow-md"
-              >
-                <summary class="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 [&::-webkit-details-marker]:hidden">
-                  <h3 class="text-base font-semibold text-slate-900">{q}</h3>
-                  <span class="flex h-8 w-8 flex-none items-center justify-center rounded-full bg-slate-100 text-slate-500 transition group-open:rotate-180 group-open:bg-indigo-600 group-open:text-white">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2.5"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      class="h-4 w-4"
-                      aria-hidden="true"
-                    >
-                      <path d="m6 9 6 6 6-6" />
-                    </svg>
-                  </span>
-                </summary>
-                <div class="border-t border-slate-100 px-5 py-4 text-sm leading-relaxed text-slate-600">
-                  {a}
-                </div>
-              </details>
-            ))
-          }
-        </div>
-      </section>
-
-      <!-- ============ 6. INTERNAL LINKING HUB ============ -->
-      <section id="related" class="bg-white">
-        <div class="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8 lg:py-24">
-          <div class="mx-auto max-w-2xl text-center">
-            <span
-              class="text-xs font-bold uppercase tracking-[0.2em] text-indigo-600"
-              >Next Steps</span
-            >
-            <h2
-              class="mt-3 text-balance text-3xl font-black tracking-tight text-slate-900 sm:text-4xl"
-            >
-              Related Guides &amp; Internal Resources
-            </h2>
-            <p class="mt-4 text-slate-600">
-              Follow the internal-linking cluster to go deeper on each pillar of
-              this back pain and posture correction guide.
-            </p>
-          </div>
-
-          <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            <a
-              href="/thoracic-extension-routine/"
-              class="group flex flex-col rounded-2xl border border-slate-200 bg-slate-50 p-5 transition hover:-translate-y-0.5 hover:border-indigo-300 hover:bg-white hover:shadow-lg"
-            >
-              <span
-                class="flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-100 text-indigo-600 transition group-hover:bg-indigo-600 group-hover:text-white"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="h-5 w-5"
-                  aria-hidden="true"
-                >
-                  <path d="M3 12h4l2-6 4 12 2-6h6" />
-                </svg>
-              </span>
-              <p class="mt-4 text-sm font-bold text-slate-900">
-                Thoracic Extension Routine for Rounded Shoulders
-              </p>
-              <p class="mt-1 text-xs text-slate-500">Pillar 1 · 5-min guide</p>
-              <span
-                class="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-indigo-600 group-hover:gap-2 transition-all"
-              >
-                Read
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="h-3 w-3"
-                  aria-hidden="true"
-                >
-                  <path d="M5 12h14M13 5l7 7-7 7" />
-                </svg>
-              </span>
-            </a>
-
-            <a
-              href="/core-activation-exercises/"
-              class="group flex flex-col rounded-2xl border border-slate-200 bg-slate-50 p-5 transition hover:-translate-y-0.5 hover:border-indigo-300 hover:bg-white hover:shadow-lg"
-            >
-              <span
-                class="flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-100 text-indigo-600 transition group-hover:bg-indigo-600 group-hover:text-white"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="h-5 w-5"
-                  aria-hidden="true"
-                >
-                  <circle cx="12" cy="12" r="9" />
-                  <circle cx="12" cy="12" r="5" />
-                  <circle cx="12" cy="12" r="1.5" fill="currentColor" />
-                </svg>
-              </span>
-              <p class="mt-4 text-sm font-bold text-slate-900">
-                Core Activation Exercises for Spinal Stability
-              </p>
-              <p class="mt-1 text-xs text-slate-500">Pillar 2 · 5-min guide</p>
-              <span
-                class="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-indigo-600 group-hover:gap-2 transition-all"
-              >
-                Read
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="h-3 w-3"
-                  aria-hidden="true"
-                >
-                  <path d="M5 12h14M13 5l7 7-7 7" />
-                </svg>
-              </span>
-            </a>
-
-            <a
-              href="/ergonomic-workstation-guide/"
-              class="group flex flex-col rounded-2xl border border-slate-200 bg-slate-50 p-5 transition hover:-translate-y-0.5 hover:border-indigo-300 hover:bg-white hover:shadow-lg"
-            >
-              <span
-                class="flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-100 text-indigo-600 transition group-hover:bg-indigo-600 group-hover:text-white"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="h-5 w-5"
-                  aria-hidden="true"
-                >
-                  <rect x="3" y="4" width="18" height="12" rx="2" />
-                  <path d="M8 20h8M12 16v4" />
-                </svg>
-              </span>
-              <p class="mt-4 text-sm font-bold text-slate-900">
-                Ergonomic Workstation Setup Guide
-              </p>
-              <p class="mt-1 text-xs text-slate-500">Pillar 3 · 15-min guide</p>
-              <span
-                class="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-indigo-600 group-hover:gap-2 transition-all"
-              >
-                Read
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="h-3 w-3"
-                  aria-hidden="true"
-                >
-                  <path d="M5 12h14M13 5l7 7-7 7" />
-                </svg>
-              </span>
-            </a>
-
-            <a
-              href="/back-pain-red-flags/"
-              class="group flex flex-col rounded-2xl border border-slate-200 bg-slate-50 p-5 transition hover:-translate-y-0.5 hover:border-indigo-300 hover:bg-white hover:shadow-lg"
-            >
-              <span
-                class="flex h-10 w-10 items-center justify-center rounded-lg bg-amber-100 text-amber-600 transition group-hover:bg-amber-500 group-hover:text-white"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="h-5 w-5"
-                  aria-hidden="true"
-                >
-                  <path d="M12 9v4M12 17h.01" />
-                  <path
-                    d="M10.3 3.9 2.4 18a2 2 0 0 0 1.7 3h15.8a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"
-                  />
-                </svg>
-              </span>
-              <p class="mt-4 text-sm font-bold text-slate-900">
-                Back Pain Red Flags: When to Seek Care
-              </p>
-              <p class="mt-1 text-xs text-slate-500">Safety · 4-min guide</p>
-              <span
-                class="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-amber-600 group-hover:gap-2 transition-all"
-              >
-                Read
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="h-3 w-3"
-                  aria-hidden="true"
-                >
-                  <path d="M5 12h14M13 5l7 7-7 7" />
-                </svg>
-              </span>
-            </a>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <!-- ============ FOOTER ============ -->
-    <footer class="border-t border-slate-200 bg-slate-50">
-      <div
-        class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-4 py-8 sm:flex-row sm:px-6 lg:px-8"
-      >
-        <div class="flex items-center gap-2 text-sm">
-          <span
-            class="flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-br from-indigo-500 to-sky-500 text-white"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="h-4 w-4"
-              aria-hidden="true"
-            >
-              <path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z" />
-            </svg>
-          </span>
-          <span class="font-semibold text-slate-800"
-            >Health &amp; Posture Guide</span
-          >
-        </div>
-
-        <nav
-          class="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-slate-600"
-          aria-label="Footer internal links"
-        >
-          <a href="/" class="hover:text-indigo-600"
-            >Back Pain &amp; Posture Pillar</a
-          >
-          <a href="/about/" class="hover:text-indigo-600"
-            >About &amp; Editorial Review</a
-          >
-          <a href="/contact/" class="hover:text-indigo-600">Contact</a>
-          <a href="/privacy/" class="hover:text-indigo-600">Privacy</a>
-        </nav>
       </div>
-    </footer>
-  </body>
+    </section>
+
+    <!-- ============ TL;DR (ANSWER-FIRST) ============ -->
+    <section class="tldr-section">
+      <div class="container">
+        <article class="tldr-box">
+          <h2>What is Agricultural Water Management in India?</h2>
+          <p>Agricultural water management in India is the strategic practice of optimizing water use to ensure food security amid severe groundwater depletion. The core solution is transitioning from flood irrigation to <strong>micro-irrigation (drip/sprinkler)</strong>, which achieves <strong>80–95% efficiency</strong>, supported by <strong>PMKSY subsidies</strong> (55% for small farmers) and practices like <strong>Direct Seeded Rice</strong> and <strong>laser land leveling</strong>.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ THREE PILLARS ============ -->
+    <section class="pillars" id="technologies">
+      <div class="container">
+        <h2>The Three Pillars of India’s Water Management Strategy</h2>
+        <div class="pillar-grid">
+          <article class="pillar-card">
+            <div class="pillar-icon" aria-hidden="true">💧</div>
+            <h3>Technology &amp; On-Farm Efficiency (The “Hardware”)</h3>
+            <p><strong>Micro-Irrigation (Drip &amp; Sprinkler):</strong> Delivers water directly to the root zone, minimizing evaporation and runoff. Drip systems are the gold standard for water-scarce regions, achieving up to 90–95% efficiency.</p>
+            <p><strong>Precision Scheduling:</strong> Moving beyond fixed timers. Using <strong>soil moisture sensors</strong> and <strong>evapotranspiration (ET) models</strong> to irrigate only when the crop needs it, saving up to <strong>30–45%</strong> water compared to traditional methods.</p>
+          </article>
+          <article class="pillar-card">
+            <div class="pillar-icon" aria-hidden="true">🏛️</div>
+            <h3>Policy &amp; Economic Incentives (The “Enabler”)</h3>
+            <p><strong>PMKSY &amp; PDMC:</strong> The umbrella scheme (“Har Khet Ko Pani”) provides the financial backbone. The <strong>“Per Drop More Crop” (PDMC)</strong> component offers <strong>55% subsidy</strong> for small/marginal farmers and <strong>45%</strong> for others to install micro-irrigation systems.</p>
+            <p><strong>Micro Irrigation Fund (MIF):</strong> Managed by NABARD, this provides additional state-level subsidies, making the upfront capital cost less prohibitive for smallholders.</p>
+          </article>
+          <article class="pillar-card">
+            <div class="pillar-icon" aria-hidden="true">🌱</div>
+            <h3>Agronomy &amp; Landscape Practices (The “Method”)</h3>
+            <p><strong>Crop Diversification:</strong> Shifting away from water-intensive paddy in the Northwest (Punjab/Haryana) towards pulses, oilseeds, and millets. This is critical as Haryana’s groundwater extraction is at <strong>136.75%</strong>.</p>
+            <p><strong>Direct Seeded Rice (DSR) &amp; AWD:</strong> DSR eliminates the need for continuous flooding during transplantation. <strong>Alternate Wetting and Drying (AWD)</strong> can reduce water use by up to 30% without yield loss.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ COMPARISON TABLE ============ -->
+    <section class="comparison" id="compare">
+      <div class="container">
+        <h2>Comparison of Irrigation Methods: Which is Right for Your Farm?</h2>
+        <div class="table-wrapper" role="region" aria-label="Irrigation Methods Comparison Table" tabindex="0">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Feature / Method</th>
+                <th scope="col">Drip Irrigation</th>
+                <th scope="col">Sprinkler Irrigation</th>
+                <th scope="col">Flood / Furrow Irrigation</th>
+                <th scope="col">Rainwater Harvesting (Farm Ponds)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Water Use Efficiency</th>
+                <td><strong>80–95%</strong></td>
+                <td>70–85%</td>
+                <td>30–50%</td>
+                <td>Variable (storage dependent)</td>
+              </tr>
+              <tr>
+                <th scope="row">Initial Cost</th>
+                <td>High (subsidized up to 55%)</td>
+                <td>Medium</td>
+                <td>Low</td>
+                <td>Medium–High (earthwork)</td>
+              </tr>
+              <tr>
+                <th scope="row">Best For</th>
+                <td>Orchards, vegetables, wide-row crops (cotton, sugarcane)</td>
+                <td>Cereals, pulses, uneven terrain</td>
+                <td>Rice, flat land with abundant water</td>
+                <td>Drought-proofing, supplemental irrigation</td>
+              </tr>
+              <tr>
+                <th scope="row">Fertigation Support</th>
+                <td><strong>Excellent</strong> (direct nutrient delivery)</td>
+                <td>Good</td>
+                <td>Poor</td>
+                <td>Not applicable</td>
+              </tr>
+              <tr>
+                <th scope="row">Key Drawback</th>
+                <td>High clogging risk if water is unfiltered</td>
+                <td>High evaporation loss in windy conditions</td>
+                <td>Severe water wastage and waterlogging</td>
+                <td>Requires significant land area and rainfall</td>
+              </tr>
+              <tr>
+                <th scope="row">Subsidy Available (PDMC)</th>
+                <td>Yes (55% for small farmers)</td>
+                <td>Yes (55% for small farmers)</td>
+                <td>No</td>
+                <td>Yes (via MGNREGA / State schemes)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="takeaways">
+          <h3>Key Takeaways</h3>
+          <ul>
+            <li><strong>For maximum water savings and high-value crops,</strong> Drip irrigation is the clear winner, despite higher upfront costs that are heavily subsidized.</li>
+            <li><strong>For field crops on uneven terrain,</strong> Sprinklers offer a pragmatic middle ground.</li>
+            <li><strong>Flood irrigation is the baseline “villain”</strong> of India’s water crisis and should be phased out where possible.</li>
+            <li><strong>Farm ponds are a complementary strategy,</strong> not a replacement for efficient application methods, especially in Maharashtra’s drought-prone zones.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ STATIC CRAWLABLE PMKSY / PDMC SUBSIDY BREAKDOWN ============ -->
+    <section class="subsidy-section" id="subsidy-rates">
+      <div class="container">
+        <h2>PMKSY / PDMC Subsidy &amp; Eligibility Breakdown (2026)</h2>
+        <p class="section-intro">Under the Centrally Sponsored <strong>Per Drop More Crop (PDMC)</strong> scheme, financial assistance is calculated against Government of India indicative unit cost norms and transferred directly to beneficiary bank accounts via Direct Benefit Transfer (DBT).</p>
+
+        <div class="subsidy-highlights">
+          <article class="stat-card">
+            <span class="stat-badge">Small &amp; Marginal Farmers (≤ 2 ha)</span>
+            <div class="stat-value">55% Base Grant</div>
+            <p class="stat-desc">Up to <strong>70%–90% effective subsidy</strong> in states offering top-ups (e.g., Maharashtra via MahaDBT, Karnataka, Rajasthan, Gujarat, UP).</p>
+          </article>
+          <article class="stat-card">
+            <span class="stat-badge">Other / Large Farmers (&gt; 2 ha)</span>
+            <div class="stat-value">45% Base Grant</div>
+            <p class="stat-desc">Up to <strong>55%–80% effective subsidy</strong> with state top-up assistance under the NABARD Micro Irrigation Fund (MIF).</p>
+          </article>
+          <article class="stat-card">
+            <span class="stat-badge">Coverage Ceiling &amp; Cycle</span>
+            <div class="stat-value">Up to 5 Hectares</div>
+            <p class="stat-desc">Available per beneficiary family, with a <strong>7-year repeat cycle</strong> before claiming fresh assistance on the same land parcel.</p>
+          </article>
+        </div>
+
+        <div class="table-wrapper" role="region" aria-label="PMKSY PDMC Subsidy Rates and Funding Pattern Table" tabindex="0">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Scheme Parameter</th>
+                <th scope="col">Small &amp; Marginal Farmers (≤ 2 Hectares)</th>
+                <th scope="col">Other / Large Farmers (&gt; 2 Hectares)</th>
+                <th scope="col">Operational Rules &amp; Norms</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Central Base Subsidy Share</th>
+                <td><strong>55%</strong> of indicative unit cost</td>
+                <td><strong>45%</strong> of indicative unit cost</td>
+                <td>Calculated per GoI spacing-wise unit cost matrix (GST excluded/as per state norm).</td>
+              </tr>
+              <tr>
+                <th scope="row">Effective Rate with State Top-Up</th>
+                <td><strong>70% – 90%</strong> (varies by state)</td>
+                <td><strong>55% – 80%</strong> (varies by state)</td>
+                <td>Top-ups funded via State Budget or NABARD Micro Irrigation Fund (MIF).</td>
+              </tr>
+              <tr>
+                <th scope="row">Centre : State Funding Split</th>
+                <td>60:40 (General States) · 90:10 (NE &amp; Himalayan)</td>
+                <td>60:40 (General States) · 90:10 (NE &amp; Himalayan)</td>
+                <td>100% Central funding for Union Territories (UTs).</td>
+              </tr>
+              <tr>
+                <th scope="row">Maximum Eligible Land Area</th>
+                <td>Up to 2.0 Hectares (full holding)</td>
+                <td>Capped at <strong>5.0 Hectares</strong> per beneficiary</td>
+                <td>Includes individual farmers, FPOs, SHGs, and registered tenant farmers.</td>
+              </tr>
+              <tr>
+                <th scope="row">Disbursement &amp; Repeat Cycle</th>
+                <td>100% DBT post-geo-tagged verification</td>
+                <td>100% DBT post-geo-tagged verification</td>
+                <td>Re-application permitted on the same survey number after <strong>7 years</strong>.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="subsidy-checklist-grid">
+          <article class="info-panel">
+            <h3>Mandatory Documents for PDMC Application</h3>
+            <ul>
+              <li><strong>Aadhaar Card</strong> linked with an active mobile number and NPCI-mapped bank account.</li>
+              <li><strong>Land Ownership Record:</strong> Latest RoR / 7/12 extract / Khatauni / Jamabandi (or registered lease deed where permitted by state rules).</li>
+              <li><strong>Bank Passbook Copy:</strong> Showing IFSC code and account holder name for DBT settlement.</li>
+              <li><strong>Caste Certificate:</strong> Required for SC/ST priority allocation and additional state top-up slabs.</li>
+              <li><strong>Water Source &amp; Electricity Proof:</strong> Well/borewell/canal certificate or irrigation pump electricity bill.</li>
+            </ul>
+          </article>
+
+          <article class="info-panel">
+            <h3>How to Apply Online (Step-by-Step)</h3>
+            <ol>
+              <li>Register on your State Agriculture / Horticulture DBT Portal (or visit your nearest Common Service Centre).</li>
+              <li>Select <strong>PMKSY – Per Drop More Crop</strong>, choose Drip or Sprinkler system, and select a BIS-certified registered manufacturer.</li>
+              <li>Obtain pre-sanction / work order approval from the Block or District Agriculture Officer.</li>
+              <li>Install the system, upload the GST invoice, and complete mandatory <strong>geo-tagged field inspection</strong> to receive DBT funds.</li>
+            </ol>
+            <div class="portal-links">
+              <a href="https://pmksy.gov.in" target="_blank" rel="noopener noreferrer" class="portal-pill">PMKSY Official Portal ↗</a>
+              <a href="https://pdmc.da.gov.in" target="_blank" rel="noopener noreferrer" class="portal-pill">PDMC Dashboard ↗</a>
+              <a href="https://mahadbt.maharashtra.gov.in" target="_blank" rel="noopener noreferrer" class="portal-pill">MahaDBT Portal ↗</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ NATIVE HTML5 <details>/<summary> FAQ ACCORDION ============ -->
+    <section class="faq" id="faq">
+      <div class="container">
+        <h2>Frequently Asked Questions (FAQs)</h2>
+        <div class="accordion" id="faqAccordion">
+
+          <details class="accordion-item" open>
+            <summary class="accordion-summary">
+              <span>What is the “Per Drop More Crop” (PDMC) scheme and how do I apply?</span>
+            </summary>
+            <div class="accordion-content">
+              <p>PDMC is a component of PMKSY that provides financial assistance for micro-irrigation. Small/marginal farmers get <strong>55% subsidy</strong>, others get <strong>45%</strong>. To apply, visit your state’s agriculture department portal or Common Service Centre (CSC) with land records and Aadhaar. The subsidy is now transferred directly (DBT) to reduce delays.</p>
+            </div>
+          </details>
+
+          <details class="accordion-item">
+            <summary class="accordion-summary">
+              <span>Why is micro-irrigation adoption still low among small farmers if it’s so beneficial?</span>
+            </summary>
+            <div class="accordion-content">
+              <p>While the technology is proven, the <strong>adoption gap</strong> is real. Key barriers include <strong>high upfront capital costs</strong>, <strong>delays in subsidy disbursement</strong> (reported in ~46% of cases in some regions), and a lack of technical knowledge for maintenance. The government is addressing this via the Micro Irrigation Fund and digital DBT, but awareness and last-mile credit access remain challenges.</p>
+            </div>
+          </details>
+
+          <details class="accordion-item">
+            <summary class="accordion-summary">
+              <span>What is the groundwater situation in India’s rice-wheat belt?</span>
+            </summary>
+            <div class="accordion-content">
+              <p>It is <strong>critical</strong>. In Haryana, the stage of groundwater extraction is <strong>136.75%</strong>, with some districts exceeding 200%. In Punjab, water tables are falling by <strong>0.4–1.0 meters per year</strong>, and 111–115 of 153 assessment units are “over-exploited”. Solutions require a “landscape-scale” approach—not just farm-level efficiency, but changing cropping patterns and incentivizing low-water crops.</p>
+            </div>
+          </details>
+
+          <details class="accordion-item">
+            <summary class="accordion-summary">
+              <span>What are the most cost-effective water-saving techniques for a smallholder?</span>
+            </summary>
+            <div class="accordion-content">
+              <p><strong>Laser land leveling</strong> (ensures uniform water distribution), <strong>mulching</strong> (reduces evaporation), and <strong>Direct Seeded Rice (DSR)</strong> are low-cost, high-impact agronomic practices. When combined with a subsidized drip system for high-value crops, the payback period can be <strong>0.5 to 2 years</strong>.</p>
+            </div>
+          </details>
+
+          <details class="accordion-item">
+            <summary class="accordion-summary">
+              <span>How does community participation help in water management?</span>
+            </summary>
+            <div class="accordion-content">
+              <p>The <strong>Hiware Bazar model</strong> in Maharashtra is the gold standard. Through integrated watershed development and <em>Gram Sabha</em> participation, the village raised its water table from 20–25 feet to 70–80 feet, changed cropping patterns to high-value horticulture, and saw <strong>reverse migration</strong>. It proves that top-down policy must be paired with local ownership for long-term sustainability.</p>
+            </div>
+          </details>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ E-E-A-T (AUTHOR + TESTIMONIAL) ============ -->
+    <section class="eeat" id="trust">
+      <div class="container">
+        <h2>Why Trust This Guide</h2>
+        <div class="eeat-grid">
+          <article class="author-card">
+            <img src="https://picsum.photos/seed/author/120/120"
+                 alt="Portrait of Dr. Rohan Patil, water policy researcher"
+                 width="120" height="120" loading="lazy" decoding="async">
+            <div>
+              <h3>Dr. Rohan Patil</h3>
+              <p class="author-role">Water Policy Researcher — ICAR &amp; IWMI</p>
+              <p>This guide was compiled by a water policy researcher with over 12 years of experience working with <strong>ICAR</strong> and <strong>IWMI</strong> on groundwater management projects across Maharashtra and Punjab.</p>
+            </div>
+          </article>
+          <article class="testimonial-card">
+            <span class="quote-mark" aria-hidden="true">“</span>
+            <blockquote>
+              <p><em>The drip system, supported by the PDMC subsidy, reduced our wheat cultivation costs by <strong>15%</strong> and increased our net returns by nearly <strong>20%</strong>.</em></p>
+            </blockquote>
+            <p class="testimonial-author">— <strong>Rajesh Yadav</strong>, Farmer, Haryana</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ INTERNAL LINKING HUB ============ -->
+    <section class="learn-more" id="learn-more">
+      <div class="container">
+        <h2>Continue Your Learning Journey</h2>
+        <div class="cluster-grid">
+          <article class="cluster-card">
+            <h3>Government Schemes</h3>
+            <p>Everything you need to know about PMKSY, PDMC, and the Micro Irrigation Fund.</p>
+            <a href="#subsidy-rates" class="cluster-link">PMKSY Subsidy: A Step-by-Step Guide to Applying for Drip Irrigation →</a>
+          </article>
+          <article class="cluster-card">
+            <h3>Crop-Specific Guides</h3>
+            <p>Tailor your water strategy to the crop you actually grow—from cotton to sugarcane.</p>
+            <a href="#compare" class="cluster-link">Water Management for Sugarcane vs. Cotton: A Comparative Guide →</a>
+          </article>
+          <article class="cluster-card">
+            <h3>Technology Deep-Dives</h3>
+            <p>Explore the sensors, controllers, and IoT systems shaping the future of farming.</p>
+            <a href="#technologies" class="cluster-link">How Soil Moisture Sensors and IoT are Revolutionizing Indian Farms →</a>
+          </article>
+          <article class="cluster-card">
+            <h3>Success Stories</h3>
+            <p>Learn from villages and farmers who have already turned their water crisis around.</p>
+            <a href="#faq" class="cluster-link">From Drought to Prosperity: The Hiware Bazar Watershed Story →</a>
+          </article>
+          <article class="cluster-card">
+            <h3>Policy Analysis</h3>
+            <p>Understand why certain policies work—and where they still fall short.</p>
+            <a href="#faq" class="cluster-link">Why Crop Diversification in Punjab is Failing and How to Fix It →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER (no H2s per checklist) ============ -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© 2026 AgriWater India · <a href="#overview">Privacy Policy</a> · <a href="#trust">Contact</a> · <a href="#learn-more">Sitemap</a></p>
+      <p class="footer-sources">Official References: <a href="https://pmksy.gov.in" target="_blank" rel="noopener noreferrer">pmksy.gov.in</a> · <a href="https://pdmc.da.gov.in" target="_blank" rel="noopener noreferrer">pdmc.da.gov.in</a> · <a href="https://icar.org.in" target="_blank" rel="noopener noreferrer">icar.org.in</a></p>
+    </div>
+  </footer>
+</body>
 </html>
