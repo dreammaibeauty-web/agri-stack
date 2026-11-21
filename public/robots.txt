@@ -1,0 +1,28 @@
+# robots.txt for AgroStack Farm
+# Generated: 2026-11-22
+
+# Allow all crawlers (including AI crawlers like GPTBot, PerplexityBot, ClaudeBot, Googlebot)
+User-agent: *
+Allow: /
+
+# Explicitly welcome AI search crawlers for GEO visibility
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Sitemap location (Astro generates sitemap-index.xml, not sitemap.xml)
+Sitemap: https://agro-stack-farm.vercel.app/sitemap-index.xml
