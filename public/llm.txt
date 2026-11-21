@@ -1,2 +1,55 @@
-\# Dream Mai Beauty &amp; Health &gt; Dream Mai Beauty is a digital health and wellness platform providing evidence-based guides on posture alignment, back pain relief, and holistic health. ## Core Pages &amp; Resources - [Homepage](https://dreammaibeauty-web-health-site.vercel.app/): Main hub for health, wellness, and posture guides. - [Sitemap](https://dreammaibeauty-web-health-site.vercel.app/sitemap-index.xml): Complete XML index of published site pages. ## Primary Topics Covered - Posture correction and spine alignment exercises - Ergonomic workspace setups and daily habits - Daily back pain relief protocols and wellness strategies
-*
+# AgroStack Farm
+
+> A comprehensive guide to agricultural water management in India, covering micro-irrigation technologies, PMKSY/PDMC subsidies, groundwater depletion challenges, and agronomic best practices for Indian farmers, agri-startups, students, and policymakers.
+
+## Primary page
+
+- [Agricultural Water Management in India](https://agro-stack-farm.vercel.app/): The definitive 2026 guide comparing drip vs sprinkler vs flood irrigation, explaining PMKSY/PDMC subsidy eligibility (55% for small farmers, 45% for others), analyzing groundwater statistics for Punjab and Haryana, and detailing cost-effective water-saving techniques for smallholders.
+
+## Key facts from this guide
+
+- Agriculture consumes over 80% of India's usable freshwater, yet on-farm water use efficiency remains 25–35%.
+- Drip irrigation achieves 80–95% water use efficiency vs. 30–50% for flood irrigation.
+- PMKSY's "Per Drop More Crop" (PDMC) scheme provides up to 55% subsidy for small/marginal farmers (≤2 ha) and 45% for larger farmers.
+- Maximum eligible area under PDMC is 5 hectares per beneficiary, with a 7-year repeat cycle.
+- Haryana's groundwater extraction stage is 136.75%, with some districts exceeding 200%.
+- Punjab water tables are declining 0.4–1.0 meters per year; 111–115 of 153 assessment units are over-exploited.
+- 115+ lakh hectares have been brought under micro-irrigation since 2015-16.
+- Effective subsidies with state top-ups can reach 70–90% in Maharashtra, Karnataka, Gujarat, Rajasthan, and Uttar Pradesh.
+
+## Verified government sources cited
+
+- PIB (Press Information Bureau): https://pib.gov.in/
+- ICAR (Indian Council of Agricultural Research): https://icar.org.in/
+- IWMI (International Water Management Institute): https://www.iwmi.org/
+- NABARD Micro Irrigation Fund: https://www.nabard.org/
+- PMKSY Official Portal: https://pmksy.gov.in/
+- PDMC Dashboard: https://pdmc.da.gov.in/
+- MahaDBT Portal (Maharashtra): https://mahadbt.maharashtra.gov.in/
+
+## Author credentials
+
+- Dr. Rohan Patil — Water Policy Researcher with 12+ years of experience at ICAR and IWMI, specializing in groundwater management across Maharashtra and Punjab.
+
+## Topics covered on this page
+
+- Micro-irrigation (drip and sprinkler systems)
+- PMKSY / PDMC subsidy eligibility and application process
+- Groundwater depletion in India's rice-wheat belt
+- Direct Seeded Rice (DSR) and Alternate Wetting and Drying (AWD)
+- Laser land leveling and mulching for water conservation
+- Crop diversification in Punjab and Haryana
+- Hiware Bazar watershed success story (Maharashtra)
+- Fertigation and precision irrigation scheduling
+
+## Supporting topics (upcoming cluster articles)
+
+- PMKSY Subsidy: A Step-by-Step Guide to Applying for Drip Irrigation
+- Water Management for Sugarcane vs. Cotton: A Comparative Guide
+- How Soil Moisture Sensors and IoT are Revolutionizing Indian Farms
+- From Drought to Prosperity: The Hiware Bazar Watershed Story
+- Why Crop Diversification in Punjab is Failing and How to Fix It
+
+## Contact
+
+- Website: https://agro-stack-farm.vercel.app/
